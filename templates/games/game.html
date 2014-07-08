@@ -294,12 +294,6 @@ log in to delegate
 
 {% if serv %}
 <hr>
-{% if hasjoined %}
-<p>
-<a class="menu" href="{% url nation game user %}"><img class="flag" src="{{ hasjoined.nation|flag_url }}"> The {{ hasjoined.nation }}</a>
-- Your nations plots.
-</p>
-{% endif %}
 {% autoescape off %}
 {{ "population"|graph:game.name }}
 {{ "cities"|graph:game.name }}

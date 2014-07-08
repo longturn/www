@@ -164,50 +164,6 @@ def game_list(request):
 		},
 		context_instance=RequestContext(request))
 
-@login_required
-def nation(request, agame, auser):
-	try:
-		game = Game.objects.get(name=agame)
-	except:
-		return message(request, "The game %s does not exist" % agame)
-	try:
-		user = User.objects.get(username=auser)
-	except:
-		return message(request, "The user %s does not exist" % auser)
-	try:
-		joined = Joined.objects.get(user=user, game=game)
-	except:
-		return message(request, "The user %s did not play in %s" % (auser, game))
-
-	if request.user != user:
-		return message(request, "Only %s can view his stats" % auser)
-	hash = base64.b64encode(md5.new("ABsoHCop-%d-%s-%03d" % (user.id, game, game.turn)).digest())
-	hash = hash.replace('/', 'x')
-	hash = hash.replace('=', '')
-	data = "%s,%s,%s" % (game.name, user.id, hash)
-	try:
-		stats = ServUserData.objects.get(user=user, game=game, turn=game.turn)
-	except:
-		return message(request, "These stats do not exist")
-	govt = stats.govt
-	stats.population *= 1000 # for |intword
-	if govt == 1:
-		govt = 'despotism'
-	if govt == 4:
-		govt = 'republic'
-	if govt == 5:
-		govt = 'democracy'
-	return render_to_response(
-		'games/nation.html',
-		{
-			'game': game,
-			'joined': joined,
-			'data': data,
-			'govt': govt,
-			'stats': stats,
-		},
-		context_instance=RequestContext(request))
-
 def nations_v(request):
 	return render_to_response(
 		'games/nations.html',

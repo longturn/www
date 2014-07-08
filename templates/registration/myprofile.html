@@ -67,7 +67,7 @@ be made for you.
 {% for j in joineds %}
 <tr class="{% cycle row0,row1 %}">
 <td><a class="menu" href="{% url game j.game %}">{{ j.game }}</a></td>
-<td><a class="menu" href="{% url nation j.game user %}"><img class="flag" src="{{ j.nation|flag_url }}"> The {{ j.nation }}</a></td>
+<td><img class="flag" src="{{ j.nation|flag_url }}"> The {{ j.nation }}</td>
 <td>{{ j.game.date_started|date:"d.m.Y" }}</td>
 <td>{{ j.game.date_ended|date:"d.m.Y" }}</td>
 </tr>
