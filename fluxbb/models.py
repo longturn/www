@@ -3,6 +3,7 @@ from django.db import models
 from django.db import connections, transaction
 from time import mktime, gmtime
 
+# polls are disabled, but let this function stay for now
 def new_topic(poll):
 	subject = "Poll: %s" % poll.title
 	descr = poll.description

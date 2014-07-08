@@ -59,7 +59,6 @@ INSTALLED_APPS = (
 	'longturn.main',
 	'longturn.player',
 	'longturn.game',
-	'longturn.poll',
 	'longturn.warcalc',
 	'longturn.serv',
 	'longturn.fluxbb',
@@ -73,7 +72,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 	#"django.core.context_processors.i18n",
 	"django.core.context_processors.media",
 	"django.contrib.messages.context_processors.messages",
-	'longturn.poll.models.active_polls',
 	'longturn.main.models.paths',
 	'longturn.main.models.active_games',
 )

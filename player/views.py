@@ -14,7 +14,6 @@ from django.conf import settings
 from longturn.game.models import Game, Joined
 from longturn.player.forms import *
 from longturn.player.models import Player
-from longturn.poll.models import Poll, Vote
 from longturn.views import message
 from longturn.main.misc import *
 import hashlib
@@ -25,21 +24,6 @@ def myprofile(request):
 	maxdate = datetime.datetime(datetime.MAXYEAR, 1, 1)
 	joineds = list(Joined.objects.filter(user=request.user))
 	joineds.sort(key=lambda x: x.game.date_started or maxdate, reverse=True)
-	pending = []
-	for j in joineds:
-		polls = Poll.objects.filter(game=j.game)
-		for p in polls:
-			if p.has_ended() == False:
-				try:
-					Vote.objects.get(poll=p, user=request.user)
-				except:
-					pending.append(p)
-	polls = Poll.objects.filter(game=None)
-	for p in polls:
-		try:
-			Vote.objects.get(poll=p, user=request.user)
-		except:
-			pending.append(p)
 
 	if request.method == 'POST':
 		if 'profile' in request.POST:
@@ -76,7 +60,6 @@ def myprofile(request):
 		"registration/myprofile.html",
 		{
 			'form': form,
-			'polls': pending,
 			'joineds': joineds,
 		},
 		context_instance=RequestContext(request))

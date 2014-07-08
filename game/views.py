@@ -14,7 +14,6 @@ from longturn.old.models import OldGame, OldJoined
 from longturn.game.forms import JoinForm, DelegateForm
 from longturn.views import message
 from longturn.player.models import Player
-from longturn.poll.models import Poll, Vote
 from django.contrib.auth.models import User
 from longturn.serv.models import ServGlobalData, ServUserData
 from longturn import nations
@@ -35,8 +34,6 @@ def game(request, gamename):
 			return message(request, "The game %s does not exist" % gamename)
 
 	joineds = None
-	apolls = None
-	epolls = None
 	hasjoined = None
 	serv = None
 	startin = None
@@ -48,17 +45,6 @@ def game(request, gamename):
 			hasjoined = Joined.objects.get(game=game, user=request.user)
 		except:
 			hasjoined = None
-		apolls = [p for p in Poll.objects.filter(game=game) if not p.has_ended() ]
-		apolls.sort(key=lambda x: x.end_date, reverse=False)
-		epolls = [p for p in Poll.objects.filter(game=game) if p.has_ended() ]
-		epolls.sort(key=lambda x: x.end_date, reverse=False)
-		for p in epolls:
-			f = Vote.objects.filter(poll=p, vote="For").count();
-			a = Vote.objects.filter(poll=p, vote="Against").count();
-			if f > a:
-				p.passed = 1
-			else:
-				p.passed = 0
 		serv = ServGlobalData.objects.filter(game=game)
 		if game.date_started:
 			startin = game.date_started - datetime.datetime.now()
@@ -97,13 +83,7 @@ def game(request, gamename):
 				form = JoinForm(request.POST)
 				if form.is_valid():
 					joined = Joined.objects.get(game=game, user=request.user)
-					polls = Poll.objects.filter(game=game)
-					for p in polls:
-						votes = Vote.objects.filter(poll=p, user=request.user)
-						for v in votes:
-							v.delete()
 					joined.delete()
-					os.system('%s/join_rate.pl %s' % (settings.PLOT_PATH, gamename))
 			elif 'confirm' in request.POST:
 				joined = Joined.objects.get(game=game, user=request.user)
 				joined.confirmed = True
@@ -142,8 +122,6 @@ def game(request, gamename):
 		{
 			'game': game,
 			'joineds': joineds,
-			'apolls': apolls,
-			'epolls': epolls,
 			'hasjoined': hasjoined,
 			'serv': serv,
 			'startin': startin,

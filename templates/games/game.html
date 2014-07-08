@@ -128,60 +128,6 @@
 
 {% if not old %}
 
-<h2>polls</h2>
-{% if apolls %}
-<p>
-<table class="longturn" width=100%>
-<th width=20>#</th>
-<th width=200>active polls</th>
-<th width=150>published</th>
-<th>ends</th>
-{% for p in apolls %}
-<tr class="{% cycle row0,row1 %}">
-	<td>{{ forloop.counter }}</td>
-	<td><a href="{% url poll p.id %}">{{ p.title }}</a></td>
-	<td>{{ p.pub_date|date:"d.m.Y, H:i:s" }}</td>
-	<td>{{ p.end_date|date:"d.m.Y, H:i:s" }}</td>
-</tr>
-{% endfor %}
-</table>
-</p>
-{% endif %}
-{% if epolls %}
-<p>
-<table class="longturn" width=100%>
-<th width=20>#</th>
-<th width=200>ended polls</th>
-<th width=150>published</th>
-<th>ended</th>
-<th width=30 title="Vote Passed">vp</th>
-<th width=30 title="Change Commited">cc</th>
-{% for p in epolls %}
-<tr class="{% cycle row0,row1 %}">
-	<td>{{ forloop.counter }}</td>
-	<td><a href="{% url poll p.id %}">{% if not p.valid %}<strike>{{ p.title }}</strike>{% else %}{{ p.title }}{% endif %}</a></td>
-	<td>{{ p.pub_date|date:"d.m.Y, H:i:s" }}</td>
-	<td>{{ p.end_date|date:"d.m.Y, H:i:s" }}</td>
-	{% if p.valid %}
-	<td><center><img width=16 height=16 {% if p.passed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
-	<td><center><img width=16 height=16 {% if p.commited %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
-	{% else %}
-	<td><center>-</center></td>
-	<td><center>-</center></td>
-	{% endif %}
-</tr>
-{% endfor %}
-</table>
-</p>
-{% endif %}
-{% if not game.has_ended %}
-<p>
-<a href="{% url new_poll %}">create a new poll</a>
-</p>
-{% endif %}
-<hr>
-
-
 <h2>players</h2>
 <table class="longturn" width=100%>
 <th width=20>#</th>

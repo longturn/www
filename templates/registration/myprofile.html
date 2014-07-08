@@ -5,25 +5,6 @@
 {% block content %}
 <h1>{{ user }}'s profile</h1>
 <hr>
-{% if polls %}
-<h2>pending polls</h2>
-Please vote in the following polls:
-<table class="longturn" width=100%>
-<th width=20>#</th>
-<th width=100>name</th>
-<th width=100>game</th>
-<th>ends</th>
-{% for p in polls %}
-<tr class="{% cycle row0,row1 %}">
-	<td>{{ forloop.counter }}</td>
-	<td><a href="{% url poll p.id %}">{{ p.title }}</a></td>
-	<td>{{ p.game }}</td>
-	<td>{{ p.end_date|date:"d.m.Y, H:i:s" }}</td>
-</tr>
-{% endfor %}
-</table>
-<hr>
-{% endif %}
 
 <p>
 <fieldset style="width: 500">

@@ -11,16 +11,4 @@
 	<li><a class="menu" href="{% url game_list %}">all games</a></li>
 	</ul>
 </tr>
-<tr>
-	<h2>polls</h2>
-	<ul class="panel">
-	{% for p in active_polls %}
-	<li><a class="menu" href="{% url poll p.id %}">{{p.game}} {{p.title|shorten}}</a></li>
-	{% endfor %}
-	</ul>
-	<ul class="panel">
-	<li><a class="menu" href="{% url poll_list %}">all polls</a></li>
-	<li><a class="menu" href="{% url new_poll %}">create a poll</a></li>
-	</ul>
-</tr>
 </table>

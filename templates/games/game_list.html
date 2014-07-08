@@ -10,7 +10,6 @@
 <th>admin</th>
 <th>rank</th>
 <th>host</th>
-<th>port</th>
 <th>created</th>
 <th>started</th>
 <th>ended</th>
@@ -22,7 +21,6 @@
 <td>{{ g.admin }}</td>
 <td><center><img width=16 height=16 {% if g.ranking %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
 <td>{{ g.host }}</td>
-<td>{% if g.port %}{{ g.port }}{% endif %}</td>
 <td>{{ g.date_created|date:"d.m.Y" }}</td>
 <td>{{ g.date_started|date:"d.m.Y" }}</td>
 <td>{{ g.date_ended|date:"d.m.Y" }}</td>
