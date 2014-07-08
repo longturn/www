@@ -1,0 +1,81 @@
+{% extends "includes/base.html" %}
+{% load humanize %}
+{% load temps %}
+{% load game_extras %}
+
+{% block title %}nation of {{ user }}{% endblock %}
+{% block content %}
+<h1>Your nation {{ user }}, leader of the {{ joined.nation }}</h1>
+<hr>
+<img class="flag" src="{{ joined.nation|flag_url }}">
+The great nation of the {{ joined.nation }}, as it was at the beginning of turn <b>T{{ game.turn }}</b>.
+<h2>statistics</h2>
+<center>
+<table><tr>
+<td valign=top style="padding: 0.0em 2ex 0.0em 2ex;">
+<fieldset style="width: 230">
+<legend>nation</legend>
+<table>
+<tr> <td align="right">game:</td> <td><a href="{% url game game %}">{{ game }}</a></td> </tr>
+<tr> <td align="right">turn:</td> <td>{{ game.turn }}</td> </tr>
+<tr> <td align="right">government:</td> <td><b>{{ govt }}</b></td> </tr>
+<tr> <td align="right">population:</td> <td>{{ stats.population|intword }}</td> </tr>
+<tr> <td align="right">cities:</td> <td>{{ stats.cities }}</td> </tr>
+<tr> <td align="right">citizens:</td> <td>{{ stats.citizens }}</td> </tr>
+<tr> <td align="right">content:</td> <td>{{ stats.content }}</td> </tr>
+<tr> <td align="right">happy:</td> <td>{{ stats.happy }}</td> </tr>
+<tr> <td align="right">unhappy:</td> <td>{{ stats.unhappy }}</td> </tr>
+<tr> <td align="right">landarea:</td> <td>{{ stats.landarea|intcomma }} sq. mi.</td> </tr>
+<tr> <td align="right">settled area:</td> <td>{{ stats.settledarea|intcomma }} sq. mi.</td> </tr>
+<tr> <td align="right">score:</td> <td>{{ stats.score }}</td> </tr>
+</table>
+</fieldset>
+</td>
+<td valign=top style="padding: 0.0em 2ex 0.0em 2ex;">
+<fieldset style="width: 120">
+<legend>economy</legend>
+<table>
+<tr> <td align="right">treasury:</td> <td>{{ stats.gold }}</td> </tr>
+<tr> <td align="right">food:</td> <td>{{ stats.food }}</td> </tr>
+<tr> <td align="right">shields:</td> <td>{{ stats.shields }}</td> </tr>
+<tr> <td align="right">production:</td> <td>{{ stats.production }}</td> </tr>
+<tr> <td align="right">techs:</td> <td>{{ stats.techs }}</td> </tr>
+<tr> <td align="right">bulbs:</td> <td>{{ stats.bulbs }}</td> </tr>
+<tr> <td align="right">trade:</td> <td>{{ stats.trade }}</td> </tr>
+<tr> <td align="right">corruption:</td> <td>{{ stats.corruption }}</td> </tr>
+<tr> <td align="right">literacy:</td> <td>{{ stats.literacy }}</td> </tr>
+<tr> <td align="right">pollution:</td> <td>{{ stats.pollution }}</td> </tr>
+</table>
+</fieldset>
+</td>
+<td valign=top style="padding: 0.0em 2ex 0.0em 2ex;">
+<fieldset style="width: 120">
+<legend>war</legend>
+<table>
+<tr> <td align="right">units:</td> <td>{{ stats.units }}</td> </tr>
+<tr> <td align="right">soldiers:</td> <td>{{ stats.munits }}</td> </tr>
+<tr> <td align="right">units built:</td> <td>{{ stats.units_built }}</td> </tr>
+<tr> <td align="right">units killed:</td> <td>{{ stats.units_killed }}</td> </tr>
+<tr> <td align="right">units lost:</td> <td>{{ stats.units_lost }}</td> </tr>
+</table>
+</fieldset>
+</td></tr></table>
+</center>
+<hr>
+<h2>graphs</h2>
+{% autoescape off %}
+{{ "population"|graph_priv:data }}
+{{ "land_area"|graph_priv:data }}
+{{ "settled_area"|graph_priv:data }}
+{{ "trade"|graph_priv:data }}
+{{ "bulbs"|graph_priv:data }}
+{{ "production"|graph_priv:data }}
+{{ "cities"|graph_priv:data }}
+{{ "citizens"|graph_priv:data }}
+{{ "units"|graph_priv:data }}
+{{ "kills"|graph_priv:data }}
+{{ "units_lost"|graph_priv:data }}
+{{ "pollution"|graph_priv:data }}
+{{ "score"|graph_priv:data }}
+{% endautoescape %}
+{% endblock %}

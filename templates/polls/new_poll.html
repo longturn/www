@@ -1,0 +1,35 @@
+{% extends "includes/base.html" %}
+{% load temps %}
+
+{% block title %}create a poll{% endblock %}
+{% block content %}
+<h1>create a new poll</h1>
+<hr>
+{% if user.is_authenticated %}
+<p>Be sure to read the <a href="{% url rules %}">rules</a> about polls!</p>
+{% if description %}
+<h2>description preview</h2>
+<hr>
+{% autoescape off %}
+{{ description|sanitize }}
+{% endautoescape %}
+{% endif %}
+<hr>
+<fieldset style="width: 460">
+<legend>poll</legend>
+<form enctype="multipart/form-data" action="" method="post">{% csrf_token %}
+	<table>
+		{{ form.as_table }}
+	</table>
+	<br>
+	<center>
+	<input class="button" type="submit" name="create" value="create">
+	<input class="button" type="submit" name="preview" value="preview">
+	</center>
+</form>
+</fieldset>
+{% else %}
+log in to create votes.
+{% endif %}
+
+{% endblock %}

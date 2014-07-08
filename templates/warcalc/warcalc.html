@@ -1,0 +1,87 @@
+{% extends "includes/base.html" %}
+
+{% block title %}War Calculator{% endblock %}
+{% block content %}
+<h1>War Calculator</h1>
+<hr>
+<p>
+Have a look at <a href="http://freeciv.wikia.com/wiki/Combat">combat of
+Freeciv</a> and <a href="http://freeciv.wikia.com/wiki/Math">math of
+Freeciv</a> before using this calculator.
+</p>
+<center>
+<form action="" method="post">{% csrf_token %}
+{{ form.non_field_errors }}
+<table class="longturn">
+<th>
+<th>strength</th>
+<th>hitpoints</th>
+<th>firepower</th>
+<tr>
+	<th>Attacker</th>
+        <td>{{ form.astr }}</td>
+        <td>{{ form.ahp }}</td>
+        <td>{{ form.afp }}</td>
+</tr>
+<tr>
+	<th>Defender</th>
+        <td>{{ form.dstr }}</td>
+        <td>{{ form.dhp }}</td>
+        <td>{{ form.dfp }}</td>
+</tr>
+</table>
+<p><input class="button" type="submit" value="calculate" /></p>
+</form>
+</center>
+
+
+{% if tab %}
+<hr>
+<h2>results</h2>
+<p>
+The attack will succeed with <b>{{ prob }}</b>% chance.
+</p>
+<hr>
+<p>
+This table describes how many attackers are needed to kill one defender.
+It is assumed that the defender will not get promoted.
+</p>
+<center>
+<table class="longturn">
+<th width=30></th>
+<th width=100>att prob</th>
+<th width=100>att hp</th>
+<th width=100>def prob</th>
+<th width=100>def hp</th>
+<th width=100>def delta</th>
+{% for r in tab %}
+<tr>
+<th>T{{ forloop.counter }}</th>
+<td>{{ r.0|floatformat:2 }}</td>
+<td>{{ r.1|floatformat:2 }}</td>
+<td>{{ r.2|floatformat:2 }}</td>
+<td>{{ r.3|floatformat:2 }}</td>
+<td>-{{ r.4|floatformat:2 }}</td>
+</tr>
+{% endfor %}
+</table>
+</center>
+<br>
+att prob - successful attack probability<br>
+att hp - expected attacker hitpoints left, after the attack<br>
+def prob - failed attack probability<br>
+def hp - expected defender hitpoints left, after the attack<br>
+def delta - expected hitpoints lost to the defender<br>
+{% if plot %}
+<hr>
+<p>
+This plot shows how many hitpoints the defender will have after the
+attack. This is only useful for defenders much stronger than attackers.
+</p>
+<fieldset style="width: 670">
+<legend>hp left</legend>
+<img src="{{ MEDIA_URL }}/plots/warcalc/{{ plot }}">
+</fieldset>
+{% endif %}
+{% endif %}
+{% endblock %}

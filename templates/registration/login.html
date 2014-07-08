@@ -1,0 +1,33 @@
+{% extends "includes/base.html" %}
+
+{% block title %}login{% endblock %}
+{% block content %}
+	{% if user.is_authenticated %}
+		You are already logged in as <b>{{ user }}</b>. <a href="{% url logout %}">log out</a>.
+	{% else %}
+		{% if form.errors %}
+			<p class="error">Sorry, that's not a valid username or password</p>
+		{% endif %}
+
+		<fieldset style="width: 270">
+		<legend>log in</legend>
+		<form action="" method="post">{% csrf_token %}
+			<table>
+				<tr>
+				<td align=right><label for="username">Username:</label></td>
+				<td><input type="text" name="username" value="" id="username"></td>
+				</tr>
+				<tr>
+				<td align=right><label for="password">Password:</label></td>
+				<td><input type="password" name="password" value="" id="password"></td>
+				</tr>
+			</table>
+			<center>
+			<input class="button" type="submit" value="login" />
+			<input type="hidden" name="next" value="{{ next|escape }}" />
+			</center>
+		</form>
+		</fieldset>
+	{% endif %}
+
+{% endblock %}

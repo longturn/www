@@ -1,0 +1,78 @@
+{% extends "includes/base.html" %}
+
+{% block title %}game rules{% endblock %}
+{% block content %}
+<h1>Rules of Longturn</h1>
+<ol>
+<li>Basic gameplay</li>
+	<ol>
+	<li>Anyone can join a game by clicking the "sign on" button in the appropriate game page.</li>
+	<li>A game starts, when there are enough players and all votes have ended.</li>
+	<li>Every player must have a <tt>longturn.org</tt> account.</li>
+	<li>Use of Jabber is recommended (GoogleTalk is Jabber). You should also have an account on the forum.</li>
+	<li>With the exception of <b>experimental</b> games, game settings cannot be changed after the game has started.</li>
+	<li>With the exception of <b>experimental</b> games, users can sign on, and sign out during the pregame state only.</li>
+	<li>The starting date of a game will be announced with at least one week advance. If more polls are created, the starting date may be postponed.</li>
+	<li>It is common courtesy to log out and let your enemy do his moves in peace, after you have done yours.</li>
+	<li>Many players have local client modifications (patches). This is acceptable, as long as automatic attack,
+	moves or similar functionality is not implemented.</li>
+	<li>Breaking the rules can result in removal from the affected game. In extreme cases - complete account deletion.</li>
+	</ol>
+<li>Polls</li>
+	<ol>
+	<li>Any player can vote in or create polls related to Longturn in general.
+	Create a poll by submitting <a href="{% url new_poll %}">this</a> form.
+	<li>Only signed on players can vote in or create polls related to a particular game.</li>
+	<li>Game settings can be changed only thru polls.</li>
+	<li>Except for experimental games, settings cannot be changed in a running game.   
+	However, this rule can be lifted in really important cases. (e.g. a 
+	setting did not work due to a bug)</li>
+	<li>Each poll will end one week after its creation.</li>
+	<li>There are three answers to polls: <i>For</i>, <i>Against</i> and <i>Withhold</i>.</li>
+	<li>After creation, you will not be able to modify your poll. If necessary ask the administrator to do that.</li>
+	<li>If your poll proposes changes to rulesets or configuration files,
+	download the files (<a href="{% url tech_src %}">sources</a>), edit them to your
+	liking, create a diff (<tt>git diff &gt; changes.diff</tt>), and upload
+	the diff in the poll creation form. After the poll passes, the administrator will apply your diff.</li>
+	</ol>
+<li>Idling</li>
+	<ol>
+	<li>Every player should make his moves every turn. If you plan on missing the next turn you should inform your allies or team mates in advance.</li>
+	<li>If a player is idle (does not log in) for more than 10 turns, or 3 turns from the beginning of the game or his creation time, he might be removed from the game or his nation given away.</li>
+	<li>If a player cannot play for more than one turn he should delegate his nation to another player. If he cannot delegate, he must inform other players that he is unavailable, so that his nation will not be removed or given away.</li>
+	<li>If a player does not want to, or cannot play anymore he should inform the other players. His nation will either be removed or given away.</li>
+	</ol>
+<li>Delegations</li>
+	<ol>
+	<li>Passwords are secret. Sharing passwords with other players is forbidden.</li>
+	<li>If unable to do his moves, a player should delegate control of his nation.</li>
+	<li>Delegation should occur only when really necessary, and canceled as soon as the player is able to do his moves again.</li>
+	<li>In <b>team games</b> delegating to players from outside of the team is forbidden.</li>
+	<li>Having control of another nation for too long is frowned upon. If the original player is away for too long his nation may be removed or given away.</li>
+	</ol>
+<li>Declaring victors</li>
+	<ol>
+	<li>A game can have one of the following outcomes:</li>
+		<ul>
+		<li>Unfinished - the game was not finished.</li>
+		<li>Tie - no player claimed victory, or the time limit (if any) has passed.</li>
+		<li>Victory - one or more players have won.</li>
+		</ul>
+	<li>A <b>team game</b> can be won by only one team by either:</li>
+		<ul>
+		<li>Military defeat of all other teams.</li>
+		<li>Winning the space race (if enabled).</li>
+		<li>Surrender - all other live players have surrendered.</li>
+		<li>Another condition, agreed upon before the game started.</li>
+		</ul>
+	<li>A <b>teamless game</b> can be won by one player, or an alliance formed by a number of players no bigger than was agreed upon before the game started, by either:</li>
+		<ul>
+		<li>Military defeat of all other players.</li>
+		<li>Winning the space race (if enabled).</li>
+		<li>Surrender - all other live players have surrendered.</li>
+		<li>Another condition, agreed upon before the game started.</li>
+		</ul>
+	<li>An <b>experimental game</b> cannot be won, as it is by nature endless.</li>
+	</ol>
+</ol>
+{% endblock %}

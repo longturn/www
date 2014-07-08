@@ -1,0 +1,45 @@
+{% extends "includes/base.html" %}
+
+{% block title %}Longturn - because civilization should be free, and long :){% endblock %}
+{% block content %}
+</p>
+<p><big>
+</big></p>
+<h1>Welcome to Longturn</h1>
+<p>
+You are here, because you enjoy Civilization-like games, and wish to
+play a multiplayer game with 20-30 human players, across a couple of
+months. You should get started by reading the <a href="{% url intro %}">introduction</a>
+and <a href="{% url rules %}">rules</a>.
+If you like what you see, <a href="{% url register %}">create and account</a> and sign on to a game.
+If you're lucky, an experimental game is running and you can be spawned right away!
+</p>
+<p>
+Links:
+<ul>
+<li>jhh's Freeciv and Longturn blog: <a href="http://www.freecivbook.com/blog/">http://www.freecivbook.com/blog/</a></li>
+<li>Longturn in Finland: <a href="http://freeciv.fi">freeciv.fi</a></li>
+<li>Join Longturn on Facebook: <a href="http://www.facebook.com/pages/longturnorg/156003031090822">longturn.org</a></li>
+<li>Follow Freeciv on Twitter: <a href="http://twitter.com/#!/freeciv">freeciv</a></li>
+<li>Old website: <a href="http://old.longturn.org">old.longturn.org</a></li>
+</ul>
+</p>
+{% if notices %}
+<h1>Notices</h1>
+{% for n in notices %}
+<table class="notice" width=100%>
+<tr>
+<th width=55%><i>{{ n.title }}</i></th>
+<th width=20%>by: <i>{{ n.author }}</i></th>
+<th width=15%><i>{{ n.pub_date|date:"d.m.Y" }}</i></th>
+<th width=10%>{% if n.game != None %}<i>{{ n.game }}</i>{% endif %}</th>
+</tr>
+<td colspan=4>{{ n.notice }}</td>
+<tr>
+</tr>
+</table>
+<br>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

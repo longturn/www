@@ -1,0 +1,93 @@
+{% extends "includes/base.html" %}
+{% load temps %}
+
+{% block title %}{{ user }}'s profile{% endblock %}
+{% block content %}
+<h1>{{ user }}'s profile</h1>
+<hr>
+{% if polls %}
+<h2>pending polls</h2>
+Please vote in the following polls:
+<table class="longturn" width=100%>
+<th width=20>#</th>
+<th width=100>name</th>
+<th width=100>game</th>
+<th>ends</th>
+{% for p in polls %}
+<tr class="{% cycle row0,row1 %}">
+	<td>{{ forloop.counter }}</td>
+	<td><a href="{% url poll p.id %}">{{ p.title }}</a></td>
+	<td>{{ p.game }}</td>
+	<td>{{ p.end_date|date:"d.m.Y, H:i:s" }}</td>
+</tr>
+{% endfor %}
+</table>
+<hr>
+{% endif %}
+
+<p>
+<fieldset style="width: 500">
+<legend>forum</legend>
+{% if user.get_profile.forum_account %}
+<p>
+Your profile: <a href="http://forum.longturn.org/profile.php?id={{ user.get_profile.forum_account.0 }}">{{ user.get_profile.forum_account.1 }}</a>.
+</p>
+<p>
+If you changed your password or email address, click <b>update</b>.<br>
+If that doesn't help, log out and log in to this website again.<br>
+If that doesn't help contact <a href="{% url profile "akfaew" %}">akfaew</a>.
+</p>
+<form action="" method="post">{% csrf_token %}
+	<center>
+	<input class="button" type="submit" name="forum_update" value="Update">
+	</center>
+</form>
+{% else %}
+<p>
+You do not have a forum account yet. Press <b>create</b>, and one will
+be made for you.
+</p>
+<form action="" method="post">{% csrf_token %}
+	<center>
+	<input class="button" type="submit" name="forum_create" value="Create">
+	</center>
+</form>
+{% endif %}
+</fieldset>
+</p>
+<hr>
+
+{% if joineds %}
+<h2>my games</h2>
+<table class="longturn" width=100%>
+<th>game</th>
+<th>my nation</th>
+<th width=100>started</th>
+<th width=100>ended</th>
+{% for j in joineds %}
+<tr class="{% cycle row0,row1 %}">
+<td><a class="menu" href="{% url game j.game %}">{{ j.game }}</a></td>
+<td><a class="menu" href="{% url nation j.game user %}"><img class="flag" src="{{ j.nation|flag_url }}"> The {{ j.nation }}</a></td>
+<td>{{ j.game.date_started|date:"d.m.Y" }}</td>
+<td>{{ j.game.date_ended|date:"d.m.Y" }}</td>
+</tr>
+{% endfor %}
+</table>
+<hr>
+{% endif %}
+
+
+<p>
+<fieldset style="width: 500">
+<legend>profile</legend>
+<form action="" method="post">{% csrf_token %}
+	<table>
+	{{ form.as_table }}
+	</table>
+	<center>
+	<input class="button" type="submit" name="profile" value="Save changes">
+	</center>
+</form>
+</fieldset>
+</p>
+{% endblock %}

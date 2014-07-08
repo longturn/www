@@ -1,0 +1,72 @@
+{% extends "includes/base.html" %}
+{% load temps %}
+
+{% block title %}{{ username }}'s profile{% endblock %}
+{% block content %}
+{% if player = None %}
+	The specified player <b>{{username}}</b> does not exist.
+{% else %}
+	<h1>{{ player }}</h1>
+	<hr>
+
+	{% if joineds %}
+	<h2>games</h2>
+	<table class="longturn" width=100%>
+	<th>game</th>
+	<th>ruler of</th>
+	<th width=50>winner</th>
+	<th width=50>rank</th>
+	<th width=100>started</th>
+	<th width=100>ended</th>
+	{% for j in joineds %}
+	<tr class="{% cycle row0,row1 %}">
+	<td><a href="{% url game j.game %}">{{ j.game }}</a></td>
+	{% if j.nation %}
+	<td><img class="flag" src="{{ j.nation|flag_url }}"> The {{ j.nation }}</td>
+	{% else %}
+	<td><img class="flag" src="{{ 'random'|flag_url }}"> forgotten</td>
+	{% endif %}
+	<td><center><img width=16 height=16 {% if j.is_winner %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+	<td><center><img width=16 height=16 {% if j.game.ranking %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+	<td>{{ j.game.date_started|date:"d.m.Y" }}</td>
+	<td>{{ j.game.date_ended|date:"d.m.Y" }}</td>
+	</tr>
+	{% endfor %}
+	</table>
+	<hr>
+	{% endif %}
+
+	<p>
+	{% if player.get_profile.forum_account %}
+	forum account: <a href="http://forum.longturn.org/profile.php?id={{ player.get_profile.forum_account.0 }}">{{ player.get_profile.forum_account.1 }}</a>.
+	{% else %}
+	This user does not have a forum account.
+	{% endif %}
+	</p>
+	{% if player.get_profile.info %}
+	<p>
+	<fieldset style="width: 450">
+	<legend>info</legend>
+	<pre>{{ player.get_profile.info }}</pre>
+	</fieldset>
+	</p>
+	{% endif %}
+	<p>
+	{% if player.email %}
+	<fieldset style="width: 450">
+	<legend>contact</legend>
+	<form action="" method="post">{% csrf_token %}
+	<table>
+	{{ form.as_table }}
+	</table>
+	<center>
+	<input class="button" type="submit" value="send">
+	</center>
+	</form>
+	</fieldset>
+	{% else %}
+	This user has not supplied an email address.
+	{% endif %}
+	</p>
+{% endif %}
+{% endblock %}

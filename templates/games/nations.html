@@ -1,0 +1,13 @@
+{% extends "includes/base.html" %}
+{% load temps %}
+
+{% block title %}Nations{% endblock %}
+{% block content %}
+<h1>Freeciv 2.3 Nations<h1>
+<table class="longturn" width="100%">
+{% for nation,flag in flags.items|sort %}
+{% cycle '<tr>' '' '' '' '<tr>' '' '' ''  %}
+	<td width="25%"><div><img class="flag" src="{{ MEDIA_URL }}/flags/{{ flag }}.png"> <span>{{ nation }}</span></div></td>
+{% endfor %}
+</table>
+{% endblock %}

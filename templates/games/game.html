@@ -1,0 +1,351 @@
+{% extends "includes/base.html" %}
+{% load game_extras %}
+{% load temps %}
+
+{% block title %}{{ game }}{% endblock %}
+{% block content %}
+<h1>Longturn - {{ game.name }}</h1>
+<hr>
+<table>
+<tr>
+<td valign=top>
+<fieldset style="width: 320">
+<legend>game info</legend>
+<table>
+<tr>
+	<td align=right>name:</td>
+	<td><b>{{ game.name }}</b></td>
+</tr>
+<tr>
+	<td align=right>mode:</td>
+	<td><b>{{ game.mode }}</b></td>
+</tr>
+{% if not old %}
+<tr>
+	<td align=right>max players:</td>
+	<td>{{ game.maxplayers }}</td>
+</tr>
+{% if game.mode = "team game" %}
+<tr>
+	<td align=right>max team size:</td>
+	<td>{{ game.maxteamsize }}</td>
+</tr>
+{% endif %}
+{% endif %}
+{% if game.admin != None %}
+<tr>
+	<td align=right>admin:</td>
+	{% if old %}
+	<td>{{ game.admin }}</td>
+	{% else %}
+	<td><a href="{% url profile game.admin %}">{{ game.admin }}</a></td>
+	{% endif %}
+</tr>
+{% endif %}
+{% if not old %}
+<tr>
+	<td align=right>created:</td>
+	<td>{{ game.date_created|date:"d.m.Y" }}</td>
+</tr>
+{% endif %}
+<tr>
+	<td align=right>ranking:</td>
+	{% if game.ranking %}
+	<td>yes</td>
+	{% else %}
+	<td>no</td>
+	{% endif %}
+</tr>
+<tr>
+	{% if startin >= 0 %}
+		<td align=right>start in:</td>
+		<td><b>{{ startin }} days</b></td>
+	{% else %}
+		<td align=right>started:</td>
+		{% if game.date_started != None %}
+		<td>{{ game.date_started|date:"d.m.Y" }}</td>
+		{% else %}
+		{% if old %}
+		<td>forgotten</td>
+		{% else %}
+		<td>not yet started</td>
+		{% endif %}
+		{% endif %}
+	{% endif %}
+</tr>
+<tr>
+	<td align=right>ended:</td>
+	{% if game.date_ended != None %}
+	<td>{{ game.date_ended|date:"d.m.Y" }}</td>
+	{% else %}
+	{% if old %}
+	<td>forgotten</td>
+	{% else %}
+	<td>not yet ended</td>
+	{% endif %}
+	{% endif %}
+</tr>
+</table>
+</fieldset>
+</td>
+<td valign=top>
+<fieldset style="width: 320">
+<legend>server info</legend>
+<table>
+<tr>
+	<td align=right>host:</td>
+	{% if game.host %}
+	<td><b>{{ game.host }}</b></td>
+	{% else %}
+	<td>unknown</td>
+	{% endif %}
+</tr>
+<tr>
+	<td align=right>port:</td>
+	{% if game.port %}
+	<td><b>{{ game.port }}</b></td>
+	{% else %}
+	<td>unknown</td>
+	{% endif %}
+</tr>
+<tr>
+	<td align=right>version:</td>
+	<td><b>{{ game.version }}</b></td>
+</tr>
+</table>
+</fieldset>
+</table>
+<hr>
+
+
+<h2>description</h2>
+<p>
+{% autoescape off %}
+{{ game.descr }}
+{% endautoescape %}
+</p>
+<hr>
+
+{% if not old %}
+
+<h2>polls</h2>
+{% if apolls %}
+<p>
+<table class="longturn" width=100%>
+<th width=20>#</th>
+<th width=200>active polls</th>
+<th width=150>published</th>
+<th>ends</th>
+{% for p in apolls %}
+<tr class="{% cycle row0,row1 %}">
+	<td>{{ forloop.counter }}</td>
+	<td><a href="{% url poll p.id %}">{{ p.title }}</a></td>
+	<td>{{ p.pub_date|date:"d.m.Y, H:i:s" }}</td>
+	<td>{{ p.end_date|date:"d.m.Y, H:i:s" }}</td>
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+{% if epolls %}
+<p>
+<table class="longturn" width=100%>
+<th width=20>#</th>
+<th width=200>ended polls</th>
+<th width=150>published</th>
+<th>ended</th>
+<th width=30 title="Vote Passed">vp</th>
+<th width=30 title="Change Commited">cc</th>
+{% for p in epolls %}
+<tr class="{% cycle row0,row1 %}">
+	<td>{{ forloop.counter }}</td>
+	<td><a href="{% url poll p.id %}">{% if not p.valid %}<strike>{{ p.title }}</strike>{% else %}{{ p.title }}{% endif %}</a></td>
+	<td>{{ p.pub_date|date:"d.m.Y, H:i:s" }}</td>
+	<td>{{ p.end_date|date:"d.m.Y, H:i:s" }}</td>
+	{% if p.valid %}
+	<td><center><img width=16 height=16 {% if p.passed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+	<td><center><img width=16 height=16 {% if p.commited %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+	{% else %}
+	<td><center>-</center></td>
+	<td><center>-</center></td>
+	{% endif %}
+</tr>
+{% endfor %}
+</table>
+</p>
+{% endif %}
+{% if not game.has_ended %}
+<p>
+<a href="{% url new_poll %}">create a new poll</a>
+</p>
+{% endif %}
+<hr>
+
+
+<h2>players</h2>
+<table class="longturn" width=100%>
+<th width=20>#</th>
+<th>player</th>
+{% if game.mode = 'team game' %}
+<th width=150>team</th>
+{% endif %}
+<th>nation</th>
+<th width=150>joined</th>
+<th width=50>regent</th>
+{% if game.mode != 'experimental' %}<th width=30 title="Participation Confirmed">pc</th>{% endif %}
+{% for p in joineds %}
+<tr class="{% cycle row0,row1 %}">
+	<td>{{ forloop.counter }}</td>
+	<td><a href="{% url profile p.user %}">{{ p.user }}</a></td>
+	{% if game.mode = 'team game' %}
+	<td>{{ p.team }}</td>
+	{% endif %}
+	<td><div><img class="flag" src="{{ MEDIA_URL }}/flags/{{ p.flag }}.png"> <span>{{ p.nation }}</span></div></td>
+	<td>{{ p.date_joined|date:"d.m.Y, H:i:s" }}</td>
+	<td>{% if p.delegation %}<a href="{% url profile p.delegation %}">{{ p.delegation }}</a>{% else %}-{% endif %}</td>
+	{% if game.mode != 'experimental' %}<td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>{% endif %}
+</tr>
+{% endfor %}
+</table>
+
+{% if not game.has_ended %}
+  {% if user.is_authenticated and hasjoined and game.open%}
+    <table><tr>
+    {% if not game.has_started %}
+      <td valign="top">
+      <fieldset style="width: 420">
+      <legend>sign up</legend>
+      <form action="" method="post">{% csrf_token %}
+        <table>
+          {{ form.as_table }}
+        </table>
+        <center>
+        <input class="button" type="submit" name="signin" value="modify">
+        <input class="button" type="submit" name="signout" value="sign out">
+        </center>
+      </form>
+      </fieldset>
+      </td>
+    {% endif %}
+    {% if not game.has_started %}
+      <td valign="top">
+      {% if startin >= 0 and game.mode != 'experimental' %}
+        <fieldset style="width: 220">
+        <legend>confirm</legend>
+        {% if startin > 14 %}
+          You will be able to confirm your participation no sooner than 14 days before the start
+          of the game. Don't worry - and email notification and forum post will be
+          sent.
+        {% else %}
+          {% if hasjoined.confirmed %}
+            You have confirmed your participation in {{ game }}. If you have changed
+            your mind - sign out.
+          {% else %}
+            <form action="" method="post">{% csrf_token %}
+            Yes, I want to participate in {{ game }} and will not become an idler.
+            <center>
+            <input class="button" type="submit" name="confirm" value="confirm">
+            </center>
+            </form>
+          {% endif %}
+        {% endif %}
+        </fieldset>
+      {% endif %}
+      </td>
+    {% endif %}
+    </tr></table>
+  {% else %}
+    {% if not game.open %}
+      signups for this game are closed.
+    {% else %}
+      {% if user.is_authenticated %}
+        <fieldset style="width: 420">
+        <legend>sign up</legend>
+        <form action="" method="post">{% csrf_token %}
+          <table> {{ form.as_table }} </table>
+          <center> <input class="button" type="submit" name="signin" value="sign in"> </center>
+        </form>
+        </fieldset>
+      {% else %}
+        log in to sign up.
+      {% endif %}
+    {% endif %}
+  {% endif %}
+<hr>
+{% if user.is_authenticated and hasjoined %}
+<table><tr><td valign="top">
+<fieldset style="width: 420">
+<legend>delegate</legend>
+<form action="" method="post">{% csrf_token %}
+        <table>
+		{{ delegateform.as_table }}
+	</table>
+	<center>
+	<input class="button" type="submit" name="delegate" value="delegate">
+	<input class="button" type="submit" name="nodelegate" value="cancel">
+	</center>
+</form>
+</fieldset>
+</td></tr></table>
+{% else %}
+log in to delegate
+{% endif %}
+{% endif %}
+
+
+{% if notices %}
+<hr>
+<h2>notices</h2>
+{% for n in notices %}
+<table class="notice" width=100%>
+<tr>
+<th width=55%><i>{{ n.title }}</i></th>
+<th width=20%>by: <i>{{ n.author }}</i></th>
+<th width=15%><i>{{ n.pub_date|date:"d.m.Y" }}</i></th>
+<th width=10%>{% if n.game != None %}<i>{{ n.game }}</i>{% endif %}</th>
+</tr>
+<td colspan=4>{{ n.notice }}</td>
+<tr>
+</tr>
+</table>
+{% endfor %}
+{% endif %}
+
+
+{% if serv %}
+<hr>
+{% if hasjoined %}
+<p>
+<a class="menu" href="{% url nation game user %}"><img class="flag" src="{{ hasjoined.nation|flag_url }}"> The {{ hasjoined.nation }}</a>
+- Your nations plots.
+</p>
+{% endif %}
+{% autoescape off %}
+{{ "population"|graph:game.name }}
+{{ "cities"|graph:game.name }}
+{{ "production"|graph:game.name }}
+{{ "trade"|graph:game.name }}
+{{ "units"|graph:game.name }}
+{{ "kills"|graph:game.name }}
+{{ "pollution"|graph:game.name }}
+{% endautoescape %}
+{% endif %}
+{% else %}
+<h2>players</h2>
+<table class="longturn" width=100%>
+<th width=20>#</th>
+<th>player</th>
+<th width=50>winner</th>
+<th width=50>idler</th>
+{% for p in joineds %}
+<tr class="{% cycle row0,row1 %}">
+	<td>{{ forloop.counter }}</td>
+	<td>{{ p.user }}</td>
+	<td><center><img width=16 height=16 {% if p.is_winner %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+	<td><center><img width=16 height=16 {% if p.is_idler %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "includes/base.html" %}
+
+{% block title %}game list{% endblock %}
+{% block content %}
+<h1>Longturn - game list</h1>
+<table class="longturn" width=100%>
+<th>name</th>
+<th>mode</th>
+<th>ver.</th>
+<th>admin</th>
+<th>rank</th>
+<th>host</th>
+<th>port</th>
+<th>created</th>
+<th>started</th>
+<th>ended</th>
+{% for g in games %}
+<tr class="{% cycle row0,row1 %}">
+<td><a href="{% url game g.name %}">{{ g.name }}</a></td>
+<td>{{ g.mode }}</td>
+<td>{{ g.version }}</td>
+<td>{{ g.admin }}</td>
+<td><center><img width=16 height=16 {% if g.ranking %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+<td>{{ g.host }}</td>
+<td>{% if g.port %}{{ g.port }}{% endif %}</td>
+<td>{{ g.date_created|date:"d.m.Y" }}</td>
+<td>{{ g.date_started|date:"d.m.Y" }}</td>
+<td>{{ g.date_ended|date:"d.m.Y" }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

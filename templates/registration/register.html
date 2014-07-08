@@ -1,0 +1,21 @@
+{% extends "includes/base.html" %}
+
+{% block title %}register{% endblock %}
+{% block content %}
+<h1>Create an account</h1>
+{% if user.is_authenticated %}
+You already have an account: <b>{{ user.username }}</b>.
+{% else %}
+<fieldset style="width: 600">
+<legend>register</legend>
+<form action="" method="post">{% csrf_token %}
+	<table>
+	{{ form.as_table }}
+	</table>
+	<center>
+	<input class="button" type="submit" value="Register">
+	</center>
+</form>
+</fieldset>
+{% endif %}
+{% endblock %}
