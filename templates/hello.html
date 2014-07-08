@@ -14,22 +14,5 @@ and <a href="{% url rules %}">rules</a>.
 If you like what you see, <a href="{% url register %}">create and account</a> and sign on to a game.
 If you're lucky, an experimental game is running and you can be spawned right away!
 </p>
-{% if notices %}
-<h1>Notices</h1>
-{% for n in notices %}
-<table class="notice" width=100%>
-<tr>
-<th width=55%><i>{{ n.title }}</i></th>
-<th width=20%>by: <i>{{ n.author }}</i></th>
-<th width=15%><i>{{ n.pub_date|date:"d.m.Y" }}</i></th>
-<th width=10%>{% if n.game != None %}<i>{{ n.game }}</i>{% endif %}</th>
-</tr>
-<td colspan=4>{{ n.notice }}</td>
-<tr>
-</tr>
-</table>
-<br>
-{% endfor %}
-{% endif %}
 
 {% endblock %}

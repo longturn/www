@@ -292,26 +292,6 @@ log in to delegate
 {% endif %}
 {% endif %}
 
-
-{% if notices %}
-<hr>
-<h2>notices</h2>
-{% for n in notices %}
-<table class="notice" width=100%>
-<tr>
-<th width=55%><i>{{ n.title }}</i></th>
-<th width=20%>by: <i>{{ n.author }}</i></th>
-<th width=15%><i>{{ n.pub_date|date:"d.m.Y" }}</i></th>
-<th width=10%>{% if n.game != None %}<i>{{ n.game }}</i>{% endif %}</th>
-</tr>
-<td colspan=4>{{ n.notice }}</td>
-<tr>
-</tr>
-</table>
-{% endfor %}
-{% endif %}
-
-
 {% if serv %}
 <hr>
 {% if hasjoined %}

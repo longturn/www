@@ -60,7 +60,6 @@ INSTALLED_APPS = (
 	'longturn.player',
 	'longturn.game',
 	'longturn.poll',
-	'longturn.notice',
 	'longturn.warcalc',
 	'longturn.serv',
 	'longturn.fluxbb',

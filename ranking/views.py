@@ -14,7 +14,6 @@ from longturn.old.models import OldGame, OldJoined
 from longturn.game.forms import JoinForm, DelegateForm
 from longturn.views import message
 from longturn.player.models import Player
-from longturn.notice.models import Notice
 from longturn.poll.models import Poll, Vote
 from django.contrib.auth.models import User
 from longturn.serv.models import ServGlobalData, ServUserData

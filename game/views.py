@@ -14,7 +14,6 @@ from longturn.old.models import OldGame, OldJoined
 from longturn.game.forms import JoinForm, DelegateForm
 from longturn.views import message
 from longturn.player.models import Player
-from longturn.notice.models import Notice
 from longturn.poll.models import Poll, Vote
 from django.contrib.auth.models import User
 from longturn.serv.models import ServGlobalData, ServUserData
@@ -36,7 +35,6 @@ def game(request, gamename):
 			return message(request, "The game %s does not exist" % gamename)
 
 	joineds = None
-	notices = None
 	apolls = None
 	epolls = None
 	hasjoined = None
@@ -50,8 +48,6 @@ def game(request, gamename):
 			hasjoined = Joined.objects.get(game=game, user=request.user)
 		except:
 			hasjoined = None
-		notices = list(Notice.objects.filter(game=game))
-		notices.sort(key=lambda x: x.pub_date, reverse=True)
 		apolls = [p for p in Poll.objects.filter(game=game) if not p.has_ended() ]
 		apolls.sort(key=lambda x: x.end_date, reverse=False)
 		epolls = [p for p in Poll.objects.filter(game=game) if p.has_ended() ]
@@ -146,7 +142,6 @@ def game(request, gamename):
 		{
 			'game': game,
 			'joineds': joineds,
-			'notices': notices,
 			'apolls': apolls,
 			'epolls': epolls,
 			'hasjoined': hasjoined,

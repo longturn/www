@@ -60,22 +60,6 @@ tr.row1 td {
 }
 
 
-table.notice {
-	padding: 0.0em 0ex 0.0em 0ex;
-	background-color: #998855;
-	color: black;
-}
-
-table.notice th {
-	text-align: left;
-	background-color: #AA9966;
-	color: black;
-}
-
-table.notice td {
-	background-color: #BBAA77;
-}
-
 table.comps {
 	padding: 0.0em 0ex 0.0em 0ex;
 	background-color: #998855;
