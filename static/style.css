@@ -1,5 +1,5 @@
 body {
-	background-image: url("/media/background.png");
+	background-image: url("/static/background.png");
 	margin: 0 0 0 0;
 	font-size: 10pt;
 }
