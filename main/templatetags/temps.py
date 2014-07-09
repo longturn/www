@@ -43,7 +43,7 @@ def flag_url(value):
 		f = nations.flags[value]
 	else:
 		f = 'unknown'
-	return '%s/flags/%s.png' % (settings.MEDIA_URL, f)
+	return '%s/flags/%s.png' % (settings.STATIC_URL, f)
 
 @register.filter(name='shorten')
 def shorten(value):
