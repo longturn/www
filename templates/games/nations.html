@@ -7,7 +7,7 @@
 <table class="longturn" width="100%">
 {% for nation,flag in flags.items|sort %}
 {% cycle '<tr>' '' '' '' '<tr>' '' '' ''  %}
-	<td width="25%"><div><img class="flag" src="{{ MEDIA_URL }}/flags/{{ flag }}.png"> <span>{{ nation }}</span></div></td>
+	<td width="25%"><div><img class="flag" src="{{ STATIC_URL }}/flags/{{ flag }}.png"> <span>{{ nation }}</span></div></td>
 {% endfor %}
 </table>
 {% endblock %}

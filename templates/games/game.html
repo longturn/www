@@ -146,7 +146,7 @@
 	{% if game.mode = 'team game' %}
 	<td>{{ p.team }}</td>
 	{% endif %}
-	<td><div><img class="flag" src="{{ MEDIA_URL }}/flags/{{ p.flag }}.png"> <span>{{ p.nation }}</span></div></td>
+	<td><div><img class="flag" src="{{ STATIC_URL }}/flags/{{ p.flag }}.png"> <span>{{ p.nation }}</span></div></td>
 	<td>{{ p.date_joined|date:"d.m.Y, H:i:s" }}</td>
 	<td>{% if p.delegation %}<a href="{% url profile p.delegation %}">{{ p.delegation }}</a>{% else %}-{% endif %}</td>
 	{% if game.mode != 'experimental' %}<td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>{% endif %}
