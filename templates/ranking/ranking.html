@@ -2,38 +2,25 @@
 {%load game_extras %}
 {%load temps %}
 
-{%block title %}Marduk's Ranking{% endblock %}
+{%block title %}Longturn Ranking{% endblock %}
 {%block content %}
-<h1>Ranking</h1>
+<h1>Longturn Ranking</h1>
 <hr>
-<h2>Rulesof the Ranking List</h2>
+<h2>Rules of the Ranking List</h2>
 
 <ul>
-<li>Playershave to complete at least two games to be displayed in the
-rankinglist.</li>
-
-<li>Playerswho have not played in any of the last 10 games are not
-displayedbut their scores are stored in the database and will be displayed
-oncethey play a new game.</li>
+	<li>Players have to complete at least two games to be displayed in the ranking list.</li>
+	<li>Players who have not played in any of the last 10 games are not displayed, but their scores are stored in the database and will be displayed once they play a new game.</li>
 </ul>
 
-<h2>RankingAlgorithm</h2>
+<h2>Ranking Algorithm</h2>
 
 <ul>
-<li>Eachnew LT player is assigned a score of 1000.</li>
-
-<li>Losersof an LT game lose P% of their score.</li>
-
-<li>Winnersof an LT game equally share the total points lost by the losing
-players.So, winning with fewer players brings more points to the winners
-encouragingsmaller alliances/teams.</li>
-
-<li>Thevalue of P is constant (10%) for team and no-diplomacy (lone wolf)
-gamesregardless of the team size or number of teams/players as every
-team/playerhas an equal chance to win.</li>
-
-<li>Foralliance games, P is larger/smaller for a smaller/larger winning
-allianceand is calculated as follows:
+	<li>Each new LT player is assigned a score of 1000.</li>
+	<li>Losers of an LT game lose P% of their score.</li>
+	<li>Winners of an LT game equally share the total points lost by the losing players. So, winning with fewer players brings more points to the winners encouraging smaller alliances/teams.</li>
+	<li>The value of P is constant (10%) for team and no-diplomacy (lone wolf) games regardless of the team size or number of teams/players as every team/player has an equal chance to win.</li>
+	<li>For alliance games, P is larger/smaller for a smaller/larger winning alliance and is calculated as follows:
 
 <pre>
 Q=T/W=(total number of players) / (number of winners):
@@ -47,8 +34,8 @@ ifQ >10 then P = 15%
 </pre>
 </li>
 
-Soif a smaller alliance wins, losing players lose more points and winners
-sharemore points among fewer players (a double advantage).
+So if a smaller alliance wins, losing players lose more points and winners
+share more points among fewer players (a double advantage).
 </ul>
 <table class="longturn" width=100%>
 <tr><th width=20>Rank</th><th>Player</th><th>Score</th><th>Won</th><th>Lost</th><th>Last Game</th></tr>
