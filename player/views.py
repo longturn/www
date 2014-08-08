@@ -83,10 +83,15 @@ def profile(request, username):
 			body = request.POST['message']
 			send_mail(
 				'[longturn] %s, a message from %s!' % (player, request.user),
-				body + "\n\n--------\nThis message was sent using the longturn.org contact form."
-				+ "\nYou can use the 'reply to' function in your client to answer.",
+				body + "\n\n--------\nThis message was sent using the longturn.org contact form.",
 				request.user.email,
-				[player.email, request.user.email],
+				[player.email],
+				fail_silently=False)
+			send_mail(
+				'[longturn] Your message to %s has been sent' % (player),
+				body + "\n\n--------\nKeep in mind %s might have given a fake address for some reason, so don't rely on it." % (player),
+				request.user.email,
+				[request.user.email],
 				fail_silently=False)
 			return message(request, "Message to %s has been sent" % player)
 	else:
