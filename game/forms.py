@@ -16,7 +16,7 @@ class NationField(forms.CharField):
 class PlayerField(forms.CharField):
 	def clean(self, value):
 		super(PlayerField, self).clean(value)
-		if User.objects.get(username=value):
+		if value in list(User.objects.all()):
 			return value
 		else:
 			raise forms.ValidationError("The player \"%s\" does not exist." % value)
@@ -35,4 +35,4 @@ class DelegateForm(forms.Form):
 		help_text='Must be an existing player, see <a href="/account/players/">players</a>.')
 
 	def clean(self, *args, **kwargs):
-		return super(JoinForm, self).clean(*args, **kwargs)
+		return super(DelegateForm, self).clean(*args, **kwargs)

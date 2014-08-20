@@ -54,16 +54,16 @@ def game(request, gamename):
 
 		if request.method == 'POST':
 			if 'delegate' in request.POST:
-				regent = request.POST['regent']
-				joined = Joined.objects.get(game=game, user=request.user)
-				joined.delegation = regent
-				joined.save()
-				os.system('/home/longturn-www/longturn/log delegate %s to %s' % (request.user, regent))
+				form = DelegateForm(request.POST)
+				if form.is_valid():
+					regent = request.POST['regent']
+					joined = Joined.objects.get(game=game, user=request.user)
+					joined.delegation = regent
+					joined.save()
 			elif 'nodelegate' in request.POST:
 				joined = Joined.objects.get(game=game, user=request.user)
 				joined.delegation = None
 				joined.save()
-				os.system('/home/longturn-www/longturn/log nodelegate %s' % (request.user))
 
 		if request.method == 'POST' and game.open == True:
 			if 'signin' in request.POST:
