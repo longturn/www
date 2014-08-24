@@ -16,7 +16,7 @@ class NationField(forms.CharField):
 class PlayerField(forms.CharField):
 	def clean(self, value):
 		super(PlayerField, self).clean(value)
-		if value in list(User.objects.all()):
+		if User.objects.filter(username=value).exists():
 			return value
 		else:
 			raise forms.ValidationError("The player \"%s\" does not exist." % value)

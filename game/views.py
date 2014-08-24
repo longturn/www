@@ -55,15 +55,18 @@ def game(request, gamename):
 		if request.method == 'POST':
 			if 'delegate' in request.POST:
 				form = DelegateForm(request.POST)
-				if form.is_valid():
+				if form and form.is_valid():
 					regent = request.POST['regent']
 					joined = Joined.objects.get(game=game, user=request.user)
 					joined.delegation = regent
 					joined.save()
+				else:
+					return message(request, "Player \"%s\" is incorrect." % request.POST['regent'])
 			elif 'nodelegate' in request.POST:
 				joined = Joined.objects.get(game=game, user=request.user)
 				joined.delegation = None
 				joined.save()
+			joineds = list(Joined.objects.filter(game=game))
 
 		if request.method == 'POST' and game.open == True:
 			if 'signin' in request.POST:
