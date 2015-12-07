@@ -57,6 +57,10 @@ def game(request, gamename):
 				form = DelegateForm(request.POST)
 				if form and form.is_valid():
 					regent = request.POST['regent']
+					for j in joineds:
+						if j.delegation == regent:
+							regent = None
+							return message(request, "Player \"%s\" is already a regent." % request.POST['regent'])
 					joined = Joined.objects.get(game=game, user=request.user)
 					joined.delegation = regent
 					joined.save()
