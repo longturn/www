@@ -27,7 +27,7 @@ class Game(models.Model):
 	version		= models.CharField(max_length=128, choices=VERSION_CHOICES)
 	admin		= models.ForeignKey(User, related_name="admin", blank=True, null=True)
 	players		= models.ManyToManyField(User, through='Joined', related_name="players")
-	host		= models.CharField(max_length=128, default="longturn.org", blank=True)
+	host		= models.CharField(max_length=128, default="longturn.net", blank=True)
 	port		= models.PositiveIntegerField(blank=True, null=True)
 	maxplayers	= models.PositiveSmallIntegerField(default=126)
 	maxteamsize	= models.PositiveSmallIntegerField(default=5)

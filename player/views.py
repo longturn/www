@@ -83,7 +83,7 @@ def profile(request, username):
 			body = request.POST['message']
 			send_mail(
 				'[longturn] %s, a message from %s!' % (player, request.user),
-				body + "\n\n--------\nThis message was sent using the longturn.org contact form.",
+				body + "\n\n--------\nThis message was sent using the longturn.net contact form.",
 				request.user.email,
 				[player.email],
 				fail_silently=False)
