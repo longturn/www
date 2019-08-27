@@ -5,11 +5,11 @@
 <h1>players</h2>
 <table class="longturn" width=100%>
 <th width=20>#</th>
-<th><a href="{% url players "username" %}">nick</a></th>
+<th><a href="{% url 'players' "username" %}">nick</a></th>
 {% for p in players %}
 <tr class="{% cycle row0,row1 %}">
 <td>{{ forloop.counter }}</td>
-<td><a href="{% url profile p.username %}">{{ p.username }}</a></td>
+<td><a href="{% url 'profile' p.username %}">{{ p.username }}</a></td>
 </tr>
 {% endfor %}
 </table>

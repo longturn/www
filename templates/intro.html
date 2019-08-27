@@ -62,7 +62,7 @@ form alliances.
 <h2>Joining the game</h2>
 <p>
 </p>
-First of all, read the <a href="{% url rules %}">rules</a>. After that,
+First of all, read the <a href="{% url 'rules' %}">rules</a>. After that,
 create an account, sign on to a pregame and wait for it to start. Or join a 
 <tt>LTeX</tt> game, if one is currently being run. You can also go to the forum and 
 sign up at a substitution list to take over an idle account if any is 
@@ -83,11 +83,11 @@ the subversion repo is recommended. Installing is not required
 for starting the game, after the build is complete a shell
 script called <tt>civ</tt> is created - use it to start your
 client. If you intend to write custom patches to your client be
-sure to read the <a href="{% url rules %}">rules</a>.
+sure to read the <a href="{% url 'rules' %}">rules</a>.
 </p>
 <hr>
 <h2>Which version of the game should I use?</h2>
-<p>The version is specified on each <a href="{% url game_list %}">game page</a>.</p>
+<p>The version is specified on each <a href="{% url 'game_list' %}">game page</a>.</p>
 <p>If you build your client from source be sure to use a
 <tt>S</tt> branch, not <tt>R</tt>. So for example, if a server
 runs version <tt>2.3</tt>, check out <tt>S2_3</tt>.</p>

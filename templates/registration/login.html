@@ -3,7 +3,7 @@
 {% block title %}login{% endblock %}
 {% block content %}
 	{% if user.is_authenticated %}
-		You are already logged in as <b>{{ user }}</b>. <a href="{% url logout %}">log out</a>.
+		You are already logged in as <b>{{ user }}</b>. <a href="{% url 'logout' %}">log out</a>.
 	{% else %}
 		{% if form.errors %}
 			<p class="error">Sorry, that's not a valid username or password</p>
