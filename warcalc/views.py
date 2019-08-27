@@ -4,7 +4,6 @@ from django.shortcuts import render_to_response
 from django.template import Context, TemplateDoesNotExist
 from django.template import RequestContext
 from django.template.loader import get_template
-from django.views.generic.simple import direct_to_template
 from longturn.warcalc.forms import *
 from django.conf import settings
 import datetime
