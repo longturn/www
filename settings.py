@@ -43,6 +43,8 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'longturn.urls'
 
+ALLOWED_HOSTS = ['longturn.net', 'www.longturn.net']
+
 TEMPLATE_DIRS = (
 	'/home/longturn-www/longturn/templates',
 )
