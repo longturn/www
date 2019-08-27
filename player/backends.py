@@ -1,6 +1,9 @@
+import hashlib
+
 from django.conf import settings
 from django.contrib.auth.models import User
-import hashlib
+
+from longturn.player.models import Player
 
 class GenMD5ModelBackend(object):
 	def authenticate(self, username=None, password=None):
