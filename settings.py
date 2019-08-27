@@ -19,9 +19,9 @@ SITE_ID = 1
 USE_I18N = False
 USE_L10N = False
 MEDIA_ROOT = '/home/longturn-www/media/'
-MEDIA_URL = 'http://longturn.org/media/'
+MEDIA_URL = 'http://longturn.net/media/'
 STATIC_ROOT = '/home/longturn-www/longturn/static/'
-STATIC_URL = 'http://longturn.org/static/'
+STATIC_URL = 'http://longturn.net/static/'
 PLOT_PATH = '/home/longturn-www/longturn/plots/'
 ADMIN_MEDIA_PREFIX = '/media/'
 # SECRET_KEY from settings_secret
@@ -42,6 +42,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'longturn.urls'
+
+ALLOWED_HOSTS = ['longturn.net', 'www.longturn.net']
 
 TEMPLATE_DIRS = (
 	'/home/longturn-www/longturn/templates',
@@ -65,7 +67,6 @@ INSTALLED_APPS = (
 	'longturn.old',
 )
 
-AUTH_PROFILE_MODULE='player.Player'
 TEMPLATE_CONTEXT_PROCESSORS = (
 	"django.contrib.auth.context_processors.auth",
 	"django.core.context_processors.debug",

@@ -9,9 +9,9 @@
 <p>
 <fieldset style="width: 500">
 <legend>forum</legend>
-{% if user.get_profile.forum_account %}
+{% if user.profile.forum_account %}
 <p>
-Your profile: <a href="http://forum.longturn.org/profile.php?id={{ user.get_profile.forum_account.0 }}">{{ user.get_profile.forum_account.1 }}</a>.
+Your profile: <a href="http://forum.longturn.net/profile.php?id={{ user.profile.forum_account.0 }}">{{ user.profile.forum_account.1 }}</a>.
 </p>
 <p>
 If you changed your password or email address, click <b>update</b>.<br>

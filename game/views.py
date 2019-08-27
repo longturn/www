@@ -8,7 +8,6 @@ from django.shortcuts import render_to_response
 from django.template import Context, TemplateDoesNotExist
 from django.template import RequestContext
 from django.template.loader import get_template
-from django.views.generic.simple import direct_to_template
 from longturn.game.models import Game, Joined
 from longturn.old.models import OldGame, OldJoined
 from longturn.game.forms import JoinForm, DelegateForm
