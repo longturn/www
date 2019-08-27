@@ -67,7 +67,6 @@ INSTALLED_APPS = (
 	'longturn.old',
 )
 
-AUTH_PROFILE_MODULE='player.Player'
 TEMPLATE_CONTEXT_PROCESSORS = (
 	"django.contrib.auth.context_processors.auth",
 	"django.core.context_processors.debug",

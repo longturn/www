@@ -37,17 +37,17 @@
 	{% endif %}
 
 	<p>
-	{% if player.get_profile.forum_account %}
-	forum account: <a href="http://forum.longturn.net/profile.php?id={{ player.get_profile.forum_account.0 }}">{{ player.get_profile.forum_account.1 }}</a>.
+	{% if player.profile.forum_account %}
+	forum account: <a href="http://forum.longturn.net/profile.php?id={{ player.profile.forum_account.0 }}">{{ player.profile.forum_account.1 }}</a>.
 	{% else %}
 	This user does not have a forum account.
 	{% endif %}
 	</p>
-	{% if player.get_profile.info %}
+	{% if player.profile.info %}
 	<p>
 	<fieldset style="width: 450">
 	<legend>info</legend>
-	<pre>{{ player.get_profile.info }}</pre>
+	<pre>{{ player.profile.info }}</pre>
 	</fieldset>
 	</p>
 	{% endif %}

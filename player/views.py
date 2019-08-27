@@ -35,24 +35,24 @@ def myprofile(request):
 				user = request.user;
 				if password != '':
 					user.set_password(password)
-					user.get_profile().pass_md5 = hashlib.md5(password).hexdigest()
-					user.get_profile().pass_sha1 = hashlib.sha1(password).hexdigest()
+					user.profile.pass_md5 = hashlib.md5(password).hexdigest()
+					user.profile.pass_sha1 = hashlib.sha1(password).hexdigest()
 				user.email = email
-				user.get_profile().info = info
-				user.get_profile().save()
+				user.profile.info = info
+				user.profile.save()
 				user.save()
 				return HttpResponseRedirect("/account/profile")
 		elif 'forum_create' in request.POST:
-			request.user.get_profile().create_forum_account()
+			request.user.profile.create_forum_account()
 			return HttpResponseRedirect("/account/profile")
 		elif 'forum_update' in request.POST:
-			a = request.user.get_profile().update_forum_account()
+			a = request.user.profile.update_forum_account()
 			return HttpResponseRedirect("/account/profile/")
 	else:
 		form = ProfileForm(
 			initial={
 				'email': request.user.email,
-				'info': request.user.get_profile().info
+				'info': request.user.profile.info
 			})
 
 	return render_to_response(
@@ -117,9 +117,9 @@ def register(request):
 			user = User.objects.create_user(username, email, password)
 			user.is_active = True
 			user.save()
-			user.get_profile().pass_md5 = hashlib.md5(password).hexdigest()
-			user.get_profile().pass_sha1 = hashlib.sha1(password).hexdigest()
-			user.get_profile().save()
+			user.profile.pass_md5 = hashlib.md5(password).hexdigest()
+			user.profile.pass_sha1 = hashlib.sha1(password).hexdigest()
+			user.profile.save()
 
 			auser = auth.authenticate(username=username, password=password)
 			auth.login(request, auser)
