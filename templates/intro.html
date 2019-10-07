@@ -4,13 +4,35 @@
 {% block content %}
 <h1>Introduction to Longturn</h1>
 <hr>
-<h2>Quick description</h2>
 <p>
-I assume you know what <a href="http://freeciv.wikia.com">Freeciv</a>
-is. Longturn is a lot like a normal multiplayer game of Freeciv, except
-the turn timeout is 23 hours, and there are at least 20 human players
-(we never play with AI!). A typical game lasts about 100-160 turns.
+Longturn is not so much a different variety of Civilization game as much as it is a different playstyle. Basically, the only official difference between LongTurn and any other game of Civilization is that <b>one game turn</b> lasts <b>one day</b>. So, not 30 seconds or 2 minutes or "whatever the players agree", but exactly <b>one day</b> (or, in most cases, 23 hours due to some minor specific technical reasons). This means that the server is running constantly and all players connect to it during the day - when they get the time - make their moves and adjustments, and then log off to continue with their lives.
 </p>
+<p>
+This, however, has drastic consequences for the flow of the game and the overall gaming experience.
+</p>
+<p>
+Firstly, when you wish to play a <b>standard</b> game of Civ with other people, one of the main obstacles is getting everybody together at the same time. If you are playing it on the internet, most of the time there will be someone ready to play, but not too many people at once. LongTurn games, on the other hand, have been known to gather many tens of players. Needless to say, a game with so many players offers unlimited possibilities when it comes to diplomacy, war, peace, alliances, cooperation and hostile behaviour.
+</p>
+<p>
+This also makes a Longturn game a major social event and the closest a Civilization game can get to Massive Mutiplayer ;)
+</p>
+<p>
+Secondly, another obstacle is finding the time to play. Even the shortest game of Civ requires a time investment and nobody can do it in breaks between other things. If you don't have at least half an hour of 100% concentrated attention at your disposal, it doesn't make sense even to start. LongTurn, on the other hand, can be played relatively casually and, if you can't spare a large block of time, it can be played in small chunks throughout the day. So, basically, if you are a working adult with a number of responsibilities, but you would still like to play a world leader in your favourite game, and do it with or against other people, this is the variant you want to play.
+</p>
+<p>
+Three: unlike the short and fast games usually played on FreeCiv servers arount the net, you have a lot of time at your disposal to think through your every move, investigate every line of research and analyse everything you weren't able to analyse if you were playing a fast game.
+</p>
+<p>
+Four: diplomacy is a blast! You can make alliances, negotiate detailed deals, squabble about individual tiles, twist arms, weasle out of agreements in a way you were never able to if you were playing fast multiplayer or just ordinary single-player games. And you have all the time in the world to negotiate, persuade and find the right words to do so. 
+</p>
+<hr>
+<h2>How to join<h2>
+<p>Longturn games are scheduled a few times a year in more or less regular intervals. A typical game may last 100-150 turns/days, although with experimental rulesets, durations way outside of this interval have happened. Sign-ups for a game are usually open roughly one month before the game is about to start.
+<p>
+In order to play a game, you need to do a few things:
+<p> 1. Download the native client from <a href=http://freeciv.org>Freeciv.org</a>. Some Longturn games may be played with an older version of Freeciv server/client, but they are all readily available on the Freeciv.org site.
+<p> 2. Make an account at this web site
+<p> 3. Sign up for the particular game AND confirm participation (usually a week before the game starts). If you don't do <b>BOTH</b>, you will not be able to play. This measure has been introduced to reduce the amount of idlers as much as possible.
 <hr>
 <h2>History of Longturn</h2>
 <p>
@@ -58,39 +80,6 @@ In teamless (Free For All) games the key to victory is diplomacy. In
 order not to be left behind with technology, players need to quickly
 form alliances.
 </p>
-<hr>
-<h2>Joining the game</h2>
-<p>
-</p>
-First of all, read the <a href="{% url 'rules' %}">rules</a>. After that,
-create an account, sign on to a pregame and wait for it to start. Or join a 
-<tt>LTeX</tt> game, if one is currently being run. You can also go to the forum and 
-sign up at a substitution list to take over an idle account if any is 
-available. If you have any questions, ask on
-the <a href="http://forum.longturn.net">forum</a> or on
-<a href="http://en.wikipedia.org/wiki/IRC">IRC</a>: <tt>#longturn</tt> on <tt>irc.freenode.net</tt>.
-</p>
-<hr>
-<h2>Do I need to download anything to play?</h2>
-<p>Yes, you need a Freeciv client.</p>
-<p>If you use Windows you should
-get an installer from the <a href="http://freeciv.wikia.com/wiki/Main_Page">Freeciv main page</a>.</p>
-<p>
-If you use Linux/Mac you can use your package manager, or better
-yet <a href="http://freeciv.wikia.com/wiki/Svn">build from sources</a>.
-It seems a bug is fixed every week, so keeping up to date with
-the subversion repo is recommended. Installing is not required
-for starting the game, after the build is complete a shell
-script called <tt>civ</tt> is created - use it to start your
-client. If you intend to write custom patches to your client be
-sure to read the <a href="{% url 'rules' %}">rules</a>.
-</p>
-<hr>
-<h2>Which version of the game should I use?</h2>
-<p>The version is specified on each <a href="{% url 'game_list' %}">game page</a>.</p>
-<p>If you build your client from source be sure to use a
-<tt>S</tt> branch, not <tt>R</tt>. So for example, if a server
-runs version <tt>2.3</tt>, check out <tt>S2_3</tt>.</p>
 <hr>
 </ul>
 {% endblock %}
