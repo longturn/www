@@ -19,5 +19,5 @@ urlpatterns = [
 	url(r'^game/',				include('longturn.game.urls')),
 	url(r'^warcalc/',			include('longturn.warcalc.urls')),
 	url(r'^ranking/',			include('longturn.ranking.urls')),
-	url(r'^admin/',				include(admin.site.urls)),
+	url(r'^admin/',				admin.site.urls),
 ]
