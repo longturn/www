@@ -1,4 +1,4 @@
-from settings_secret import *
+from .settings_secret import *
 
 #DEBUG = True
 DEBUG = True

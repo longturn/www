@@ -18,8 +18,6 @@ from longturn.serv.models import ServGlobalData, ServUserData
 from longturn import nations
 import datetime
 import os
-import md5
-import base64
 
 def game(request, gamename):
 	old = 0
