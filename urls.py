@@ -1,10 +1,10 @@
 from django.conf.urls import *
-#from django.contrib import admin
+from django.contrib import admin
 from django.contrib.auth.views import login, logout
 from longturn.game.views import nations_v
 from longturn.views import *
 
-#admin.autodiscover()
+admin.autodiscover()
 
 urlpatterns = [
 	url(r'^$',				hello, name='hello'),
@@ -20,5 +20,5 @@ urlpatterns = [
 	url(r'^game/',				include('longturn.game.urls')),
 	url(r'^warcalc/',			include('longturn.warcalc.urls')),
 	url(r'^ranking/',			include('longturn.ranking.urls')),
-#	url(r'^admin/',				include(admin.site.urls)),
+	url(r'^admin/',				include(admin.site.urls)),
 ]
