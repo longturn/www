@@ -7,8 +7,8 @@ import time
 import datetime
 
 class ServUserData(models.Model):
-	user		= models.ForeignKey(User, related_name="statuser")
-	game		= models.ForeignKey(Game, related_name="statgame")
+	user		= models.ForeignKey(User, on_delete=models.CASCADE, related_name="statuser")
+	game		= models.ForeignKey(Game, on_delete=models.CASCADE, related_name="statgame")
 	turn		= models.IntegerField()
 
 	bulbs		= models.IntegerField()
@@ -45,7 +45,7 @@ class ServUserData(models.Model):
 		return "%s/%s/%s" % (self.game, self.turn, self.user)
 
 class ServGlobalData(models.Model):
-	game		= models.ForeignKey(Game, related_name="game")
+	game		= models.ForeignKey(Game, on_delete=models.CASCADE, related_name="game")
 	turn		= models.IntegerField()
 
 	players		= models.IntegerField()
