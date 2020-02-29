@@ -6,5 +6,7 @@ required packages:
   p5-DBD-Pg
   lua # for gnuplot apparently
 
+pip names: beautifulsoup4 psycopg flup
+
 symlink in static/admin needs to point to django static admin files, here in:
   /usr/lib/python2.7/dist-packages/django/contrib/admin/static/admin

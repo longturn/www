@@ -29,7 +29,7 @@ def warcalc(request):
 		# hp - hp lost in battle
 		for hp in range(0, k):
 			y = newt(hp + l, hp) * pow(p, hp) * pow(1 - p, l)
-			f.write("%d %.20f\n" % (defhp - attfp * hp, y))
+			f.write(b"%d %.20f\n" % (defhp - attfp * hp, y))
 			x += y
 
 		# defender lost
@@ -38,7 +38,7 @@ def warcalc(request):
 		for al in range(0, l):
 			y += newt(k - 1 + al, al) * pow(p, k - 1) * pow(1 - p, al) * p
 		x += y
-		f.write("%d %.20f\n" % (0, y))
+		f.write(b"%d %.20f\n" % (0, y))
 		f.flush()
 		name = "%s/plots/warcalc/%s-%s-%s-%s-%s-%s.svg" % (settings.MEDIA_ROOT, atthp, defhp, attfp, deffp, attpo, defpo)
 		system("gnuplot -e 'load \"%s/warcalc.p\"; set output \"%s\"; set ylabel \"probability\"; set xrange [0:%s]; plot \"%s\" with boxes linecolor rgb \"#000000\"' 2>/tmp/gnuplot_errors" % (settings.PLOT_PATH, name, atthp, f.name));

@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from BeautifulSoup import BeautifulSoup, Comment
+from bs4 import BeautifulSoup, Comment
 from django.template import Library
 from django.conf import settings
 from longturn import nations

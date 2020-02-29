@@ -10,8 +10,8 @@ class GenMD5ModelBackend(object):
 		try:
 			user = User.objects.get(username=username)
 			if user.check_password(password):
-				user.profile.pass_md5 = hashlib.md5(password).hexdigest()
-				user.profile.pass_sha1 = hashlib.sha1(password).hexdigest()
+				user.profile.pass_md5 = hashlib.md5(password.encode('utf-8')).hexdigest()
+				user.profile.pass_sha1 = hashlib.sha1(password.encode('utf-8')).hexdigest()
 				user.profile.save()
 				return user
 		except User.DoesNotExist:
