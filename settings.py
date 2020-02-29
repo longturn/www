@@ -25,7 +25,7 @@ PLOT_PATH = '/home/longturn-www/longturn/plots/'
 ADMIN_MEDIA_PREFIX = '/media/'
 # SECRET_KEY from settings_secret
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
 	'django.middleware.common.CommonMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
 #	'django.middleware.csrf.CsrfViewMiddleware',
@@ -48,7 +48,7 @@ TEMPLATES = [{
             'django.template.context_processors.media',
             'django.template.context_processors.static',
 #            'django.template.context_processors.tz',
-#            'django.contrib.messages.context_processors.messages',,
+            'django.contrib.messages.context_processors.messages',
             'longturn.main.models.paths',
             'longturn.main.models.active_games',
         ],
