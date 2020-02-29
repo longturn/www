@@ -16,7 +16,7 @@ Dates of older games might be inaccurate, as they were recovered from filesystem
 <th>started</th>
 <th>ended</th>
 {% for g in games %}
-<tr class="{% cycle row0,row1 %}">
+<tr class="{% cycle row0 row1 %}">
 <td><a href="{% url 'game' g.name %}">{{ g.name }}</a></td>
 <td>{{ g.mode }}</td>
 <td>{{ g.version }}</td>

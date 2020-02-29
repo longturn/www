@@ -25,7 +25,7 @@
 	<td align=right>max players:</td>
 	<td>{{ game.maxplayers }}</td>
 </tr>
-{% if game.mode = "team game" %}
+{% if game.mode == "team game" %}
 <tr>
 	<td align=right>max team size:</td>
 	<td>{{ game.maxteamsize }}</td>
@@ -132,7 +132,7 @@
 <table class="longturn" width=100%>
 <th width=20>#</th>
 <th>player</th>
-{% if game.mode = 'team game' %}
+{% if game.mode == 'team game' %}
 <th width=150>team</th>
 {% endif %}
 <th>nation</th>
@@ -140,10 +140,10 @@
 <th width=50>regent</th>
 {% if game.mode != 'experimental' %}<th width=30 title="Participation Confirmed">pc</th>{% endif %}
 {% for p in joineds %}
-<tr class="{% cycle row0,row1 %}">
+<tr class="{% cycle row0 row1 %}">
 	<td>{{ forloop.counter }}</td>
 	<td><a href="{% url 'profile' p.user %}">{{ p.user }}</a></td>
-	{% if game.mode = 'team game' %}
+	{% if game.mode == 'team game' %}
 	<td>{{ p.team }}</td>
 	{% endif %}
 	<td><div><img class="flag" src="{{ STATIC_URL }}/flags/{{ p.flag }}.png"> <span>{{ p.nation }}</span></div></td>
@@ -258,7 +258,7 @@ log in to delegate
 <th width=50>winner</th>
 <th width=50>idler</th>
 {% for p in joineds %}
-<tr class="{% cycle row0,row1 %}">
+<tr class="{% cycle row0 row1 %}">
 	<td>{{ forloop.counter }}</td>
 	<td>{{ p.user }}</td>
 	<td><center><img width=16 height=16 {% if p.is_winner %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
