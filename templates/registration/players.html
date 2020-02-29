@@ -7,7 +7,7 @@
 <th width=20>#</th>
 <th><a href="{% url 'players' "username" %}">nick</a></th>
 {% for p in players %}
-<tr class="{% cycle row0,row1 %}">
+<tr class="{% cycle row0 row1 %}">
 <td>{{ forloop.counter }}</td>
 <td><a href="{% url 'profile' p.username %}">{{ p.username }}</a></td>
 </tr>

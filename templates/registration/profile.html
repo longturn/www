@@ -3,7 +3,7 @@
 
 {% block title %}{{ username }}'s profile{% endblock %}
 {% block content %}
-{% if player = None %}
+{% if player == None %}
 	The specified player <b>{{username}}</b> does not exist.
 {% else %}
 	<h1>{{ player }}</h1>
@@ -19,7 +19,7 @@
 	<th width=100>started</th>
 	<th width=100>ended</th>
 	{% for j in joineds %}
-	<tr class="{% cycle row0,row1 %}">
+	<tr class="{% cycle row0 row1 %}">
 	<td><a href="{% url 'game' j.game %}">{{ j.game }}</a></td>
 	{% if j.nation %}
 	<td><img class="flag" src="{{ j.nation|flag_url }}"> The {{ j.nation }}</td>
