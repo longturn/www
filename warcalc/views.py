@@ -1,8 +1,7 @@
 from django import forms
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import Context, TemplateDoesNotExist
-from django.template import RequestContext
 from django.template.loader import get_template
 from longturn.warcalc.forms import *
 from django.conf import settings
@@ -107,15 +106,15 @@ def warcalc(request):
 				'dhp': dhp,
 				'dfp': dfp,
 			})
-			return render_to_response(
+			return render(
+                                request,
 				'warcalc/warcalc.html',
 				{
 					'form': form,
 					'tab': tab,
 					'prob': "%.6f" % (prob * 100),
 					'plot': "%s-%s-%s-%s-%s-%s.svg" % (ahp, dhp, afp, dfp, astr, dstr),
-				},
-				context_instance=RequestContext(request))
+				})
 	else:
 		form = WarCalcForm(initial={
 			'astr': 12.0,
@@ -126,10 +125,10 @@ def warcalc(request):
 			'dfp': 1,
 		})
 
-	return render_to_response(
+	return render(
+                request,
 		'warcalc/warcalc.html',
 		{
 			'form': form,
-		},
-		context_instance=RequestContext(request))
+		})
 

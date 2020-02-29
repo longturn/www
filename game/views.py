@@ -4,9 +4,8 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render, render_to_response
+from django.shortcuts import render
 from django.template import Context, TemplateDoesNotExist
-from django.template import RequestContext
 from django.template.loader import get_template
 from longturn.game.models import Game, Joined
 from longturn.old.models import OldGame, OldJoined
@@ -119,7 +118,8 @@ def game(request, gamename):
 	else:
 		joineds = list(OldJoined.objects.filter(game=game))
 
-	return render_to_response(
+	return render(
+                request,
 		'games/game.html',
 		{
 			'game': game,
@@ -130,8 +130,7 @@ def game(request, gamename):
 			'form': form,
 			'delegateform': delegateform,
 			'old': old,
-		},
-		context_instance=RequestContext(request))
+		})
 
 def players_txt(request, gamename):
 	try:
@@ -155,17 +154,17 @@ def game_list(request):
 	mindate = datetime.datetime(datetime.MAXYEAR, 1, 1)
 	games = list(Game.objects.all()) + list(OldGame.objects.all())
 	games.sort(key=lambda x: x.date_started or mindate, reverse=False)
-	return render_to_response(
-		'games/game_list.html',
+	return render(
+		request,
+                'games/game_list.html',
 		{
 			'games': games,
-		},
-		context_instance=RequestContext(request))
+		})
 
 def nations_v(request):
-	return render_to_response(
+	return render(
+                request,
 		'games/nations.html',
 		{
 			'flags': nations.flags,
-		},
-		context_instance=RequestContext(request))
+		})

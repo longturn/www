@@ -4,9 +4,8 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import Context, TemplateDoesNotExist
-from django.template import RequestContext
 from django.template.loader import get_template
 from longturn.game.models import Game, Joined
 from longturn.old.models import OldGame, OldJoined
@@ -31,9 +30,9 @@ def ranking(request):
 			#ouser.times_won = oldtimeswon(ouser)
 			users.append(ouser)
 
-	return render_to_response(
+	return render(
+                request,
 		'ranking/ranking.html',
 		{
 			'users': users,
-		},
-		context_instance=RequestContext(request))
+		})

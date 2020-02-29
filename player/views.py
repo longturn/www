@@ -5,9 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.template import Context, TemplateDoesNotExist
-from django.template import RequestContext
 from django.template.loader import get_template
 from django.conf import settings
 from longturn.game.models import Game, Joined
@@ -55,13 +54,13 @@ def myprofile(request):
 				'info': request.user.profile.info
 			})
 
-	return render_to_response(
+	return render(
+                request,
 		"registration/myprofile.html",
 		{
 			'form': form,
 			'joineds': joineds,
-		},
-		context_instance=RequestContext(request))
+		})
 
 @login_required
 def profile(request, username):
@@ -96,7 +95,8 @@ def profile(request, username):
 	else:
 		form = ContactForm()
 
-	return render_to_response(
+	return render(
+                request,
 		"registration/profile.html",
 		{
 			'olduser': olduser,
@@ -104,8 +104,7 @@ def profile(request, username):
 			'player': player,
 			'joineds': joineds,
 			'username': username,
-		},
-		context_instance=RequestContext(request))
+		})
 
 def register(request):
 	if request.method == 'POST':
@@ -127,12 +126,12 @@ def register(request):
 	else:
 		form = RegistrationForm()
 
-	return render_to_response(
+	return render(
+                request,
 		"registration/register.html",
 		{
 			'form': form,
-		},
-		context_instance=RequestContext(request))
+		})
 
 def players(request, sort):
 	reverse = False
@@ -146,9 +145,9 @@ def players(request, sort):
 	elif sort == 'admin':
 		players.sort(key=lambda x: x.is_staff, reverse=reverse)
 
-	return render_to_response(
+	return render(
+                request,
 		"registration/players.html",
 		{
 			'players': players,
-		},
-		context_instance=RequestContext(request))
+		})
