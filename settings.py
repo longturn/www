@@ -2,7 +2,6 @@ from settings_secret import *
 
 #DEBUG = True
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
 	('Michal Mazurek', 'akfaew@gmail.com'),
@@ -26,13 +25,6 @@ PLOT_PATH = '/home/longturn-www/longturn/plots/'
 ADMIN_MEDIA_PREFIX = '/media/'
 # SECRET_KEY from settings_secret
 
-TEMPLATE_LOADERS = (
-	'django.template.loaders.filesystem.Loader',
-	'django.template.loaders.app_directories.Loader',
-#	'django.template.loaders.app_directories.load_template_source',
-#	'django.template.loaders.eggs.Loader',
-)
-
 MIDDLEWARE_CLASSES = (
 	'django.middleware.common.CommonMiddleware',
 	'django.contrib.sessions.middleware.SessionMiddleware',
@@ -43,11 +35,35 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'longturn.urls'
 
-ALLOWED_HOSTS = ['longturn.net', 'www.longturn.net']
+ALLOWED_HOSTS = ['localhost']
+#ALLOWED_HOSTS = ['longturn.net', 'www.longturn.net']
 
-TEMPLATE_DIRS = (
+TEMPLATES = [{
+    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+    'OPTIONS': {
+        'context_processors': [
+            'django.contrib.auth.context_processors.auth',
+            'django.template.context_processors.debug',
+#            'django.template.context_processors.i18n',
+            'django.template.context_processors.media',
+            'django.template.context_processors.static',
+#            'django.template.context_processors.tz',
+#            'django.contrib.messages.context_processors.messages',,
+            'longturn.main.models.paths',
+            'longturn.main.models.active_games',
+        ],
+        'loaders': [
+            'django.template.loaders.filesystem.Loader',
+            'django.template.loaders.app_directories.Loader',
+#           'django.template.loaders.app_directories.load_template_source',
+#           'django.template.loaders.eggs.Loader',
+        ]
+    },
+    'DIRS': [
+        './longturn/templates',
 	'/home/longturn-www/longturn/templates',
-)
+    ]
+}]
 
 INSTALLED_APPS = (
 	'django.contrib.auth',
@@ -67,15 +83,6 @@ INSTALLED_APPS = (
 	'longturn.old',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-	"django.contrib.auth.context_processors.auth",
-	"django.core.context_processors.debug",
-	#"django.core.context_processors.i18n",
-	"django.core.context_processors.media",
-	"django.contrib.messages.context_processors.messages",
-	'longturn.main.models.paths',
-	'longturn.main.models.active_games',
-)
 LOGIN_REDIRECT_URL = "/account/profile/"
 
 AUTHENTICATION_BACKENDS = ('longturn.player.backends.GenMD5ModelBackend',)
