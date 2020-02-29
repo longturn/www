@@ -6,7 +6,7 @@ from longturn.views import *
 
 #admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = [
 	url(r'^$',				hello, name='hello'),
 	url(r'^intro/$',			about, { 'template': 'intro.html' }, name='intro'),
 	url(r'^rules/$',			about, { 'template': 'rules.html' }, name='rules'),
@@ -16,9 +16,9 @@ urlpatterns = patterns('',
 	url(r'^tech/src/$',			about, { 'template': 'tech/src.html' }, name='tech_src'),
 	url(r'^nations/$',			nations_v, name='nations'),
 	url(r'^screenshots/$',			about, { 'template': 'screenshots.html' }, name='screenshots'),
-	(r'^account/',				include('longturn.player.urls')),
-	(r'^game/',				include('longturn.game.urls')),
-	(r'^warcalc/',				include('longturn.warcalc.urls')),
-	(r'^ranking/',				include('longturn.ranking.urls')),
-	#(r'^admin/',				include(admin.site.urls)),
-)
+	url(r'^account/',			include('longturn.player.urls')),
+	url(r'^game/',				include('longturn.game.urls')),
+	url(r'^warcalc/',			include('longturn.warcalc.urls')),
+	url(r'^ranking/',			include('longturn.ranking.urls')),
+#	url(r'^admin/',				include(admin.site.urls)),
+]
