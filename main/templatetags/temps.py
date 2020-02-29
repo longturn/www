@@ -1,6 +1,6 @@
+from collections import OrderedDict
 from BeautifulSoup import BeautifulSoup, Comment
 from django.template import Library
-from django.utils.datastructures import SortedDict
 from django.conf import settings
 from longturn import nations
 register = Library()
@@ -23,7 +23,7 @@ def sanitize_html(value):
 @register.filter(name='sort')
 def listsort(value):
 	if isinstance(value, dict):
-		new_dict = SortedDict()
+		new_dict = OrderedDict()
 		key_list = value.keys()
 		key_list.sort()
 		for key in key_list:
