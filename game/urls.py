@@ -1,5 +1,4 @@
 from django.conf.urls import *
-from django.contrib.auth.views import login, logout
 from longturn.game.views import *
 from longturn.views import *
 

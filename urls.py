@@ -1,6 +1,5 @@
 from django.conf.urls import *
 from django.contrib import admin
-from django.contrib.auth.views import login, logout
 from longturn.game.views import nations_v
 from longturn.views import *
 
