@@ -35,8 +35,8 @@ def myprofile(request):
 				user = request.user;
 				if password != '':
 					user.set_password(password)
-					user.profile.pass_md5 = hashlib.md5(password).hexdigest()
-					user.profile.pass_sha1 = hashlib.sha1(password).hexdigest()
+					user.profile.pass_md5 = hashlib.md5(password.encode()).hexdigest()
+					user.profile.pass_sha1 = hashlib.sha1(password.encode()).hexdigest()
 				user.email = email
 				user.profile.discord = discord
 				user.profile.info = info
@@ -119,8 +119,8 @@ def register(request):
 			user = User.objects.create_user(username, email, password)
 			user.is_active = True
 			user.save()
-			user.profile.pass_md5 = hashlib.md5(password).hexdigest()
-			user.profile.pass_sha1 = hashlib.sha1(password).hexdigest()
+			user.profile.pass_md5 = hashlib.md5(password.encode()).hexdigest()
+			user.profile.pass_sha1 = hashlib.sha1(password.encode()).hexdigest()
 			user.profile.save()
 
 			auser = auth.authenticate(username=username, password=password)
