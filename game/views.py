@@ -4,7 +4,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-from django.shortcuts import render_to_response
+from django.shortcuts import render, render_to_response
 from django.template import Context, TemplateDoesNotExist
 from django.template import RequestContext
 from django.template.loader import get_template
@@ -142,14 +142,13 @@ def players_txt(request, gamename):
 	joineds = list(Joined.objects.filter(game=game))
 	joineds.sort(key=lambda x: x.date_joined, reverse=False)
 
-	return render_to_response(
+	return render(
                 request,
 		'games/players.txt',
 		{
 			'game': game,
 			'joineds': joineds,
 		},
-		context_instance=RequestContext(request),
 		content_type='text/text')
 
 def game_list(request):
