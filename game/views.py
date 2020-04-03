@@ -90,7 +90,7 @@ def game(request, gamename):
 				joined = Joined.objects.get(game=game, user=request.user)
 				joined.confirmed = True
 				joined.save()
-				
+
 			return HttpResponseRedirect("/game/%s/" % gamename)
 		else:
 			if hasjoined != None:
@@ -132,6 +132,24 @@ def game(request, gamename):
 			'old': old,
 		},
 		context_instance=RequestContext(request))
+
+def players_txt(request, gamename):
+	try:
+		game = Game.objects.get(name=gamename)
+	except:
+		return message(request, "The game %s does not exist" % gamename)
+
+	joineds = list(Joined.objects.filter(game=game))
+	joineds.sort(key=lambda x: x.date_joined, reverse=False)
+
+	return render(
+                request,
+		'games/players.txt',
+		{
+			'game': game,
+			'joineds': joineds,
+		},
+		content_type='text/text')
 
 def game_list(request):
 	mindate = datetime.datetime(datetime.MAXYEAR, 1, 1)
