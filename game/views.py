@@ -142,13 +142,14 @@ def players_txt(request, gamename):
 	joineds = list(Joined.objects.filter(game=game))
 	joineds.sort(key=lambda x: x.date_joined, reverse=False)
 
-	return render(
+	return render_to_response(
                 request,
 		'games/players.txt',
 		{
 			'game': game,
 			'joineds': joineds,
 		},
+		context_instance=RequestContext(request),
 		content_type='text/text')
 
 def game_list(request):
