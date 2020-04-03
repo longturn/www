@@ -1,0 +1,2 @@
+{% for p in joineds %}{{ p.user }}:{% if game.mode == 'team game' %}{{ p.team }}{% endif %}:{% if p.nation != 'random' %}{{ p.nation }}{% endif %}
+{% endfor %}
