@@ -35,8 +35,8 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'longturn.urls'
 
-ALLOWED_HOSTS = ['localhost']
-#ALLOWED_HOSTS = ['longturn.net', 'www.longturn.net']
+#ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['longturn.net', 'www.longturn.net']
 
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
