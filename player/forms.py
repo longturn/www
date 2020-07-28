@@ -64,6 +64,11 @@ class ProfileForm(forms.Form):
 		max_length=60,
 		help_text='communication is very important in Longturn. Be sure to enter an address you actually check. Messages from other users, as well as notifications about game start will be sent to this address. You can leave this value blank for now and change it later. It will not be verified.',
 		required=False)
+	discord = forms.CharField(
+		max_length=120,
+		help_text="Your Discord username (optional). Make sure to also <a href='https://discord.gg/6bwT5MM'>join our server</a>!",
+		label='Discord ID',
+		required=False)
 	password = forms.CharField(
 		widget=forms.PasswordInput(),
 		max_length=60,

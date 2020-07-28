@@ -29,6 +29,7 @@ def myprofile(request):
 			if form.is_valid():
 				password = request.POST['password']
 				email = request.POST['email']
+				discord = request.POST['discord']
 				info = request.POST['info']
 
 				user = request.user;
@@ -37,6 +38,7 @@ def myprofile(request):
 					user.profile.pass_md5 = hashlib.md5(password).hexdigest()
 					user.profile.pass_sha1 = hashlib.sha1(password).hexdigest()
 				user.email = email
+				user.profile.discord = discord
 				user.profile.info = info
 				user.profile.save()
 				user.save()
@@ -51,6 +53,7 @@ def myprofile(request):
 		form = ProfileForm(
 			initial={
 				'email': request.user.email,
+				'discord': request.user.profile.discord,
 				'info': request.user.profile.info
 			})
 

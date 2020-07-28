@@ -43,6 +43,13 @@
 	This user does not have a forum account.
 	{% endif %}
 	</p>
+	<p>
+	{% if player.profile.discord %}
+	Discord username: {{ player.profile.discord }}.
+	{% else %}
+	This user does not have a Discord account.
+	{% endif %}
+	</p>
 	{% if player.profile.info %}
 	<p>
 	<fieldset style="width: 450">
