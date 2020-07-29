@@ -83,6 +83,7 @@ INSTALLED_APPS = (
 	'longturn.old',
 )
 
+LOGIN_URL = "/account/login/"
 LOGIN_REDIRECT_URL = "/account/profile/"
 
 AUTHENTICATION_BACKENDS = ('longturn.player.backends.GenMD5ModelBackend',)
