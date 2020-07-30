@@ -3,6 +3,7 @@ from django import forms
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import F
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.template import Context, TemplateDoesNotExist
@@ -151,9 +152,15 @@ def players_txt(request, gamename):
 		content_type='text/text')
 
 def game_list(request):
-	mindate = datetime.datetime(datetime.MAXYEAR, 1, 1)
-	games = list(Game.objects.all()) + list(OldGame.objects.all())
-	games.sort(key=lambda x: x.date_started or mindate, reverse=False)
+	games = list(Game.objects.all().order_by(
+		F('date_created').desc(nulls_last=True),
+		F('date_started').desc(nulls_last=True),
+		F('date_ended').desc(nulls_last=True),
+		F('version').desc(nulls_last=True)))
+	games += list(OldGame.objects.all().order_by(
+		F('date_started').desc(nulls_last=True),
+		F('date_ended').desc(nulls_last=True),
+		F('version').desc(nulls_last=True)))
 	return render(
 		request,
                 'games/game_list.html',
