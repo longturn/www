@@ -7,8 +7,7 @@ class GameAdmin(admin.ModelAdmin):
 
 class JoinedAdmin(admin.ModelAdmin):
 	list_display = ('user', 'game', 'nation', 'team')
-	search_fields = ('user', 'game')
-#	list_filter = ('ishuman',)
+	search_fields = ('user__username', 'game__name')
 
 admin.site.register(Game, GameAdmin)
 admin.site.register(Team)
