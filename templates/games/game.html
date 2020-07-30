@@ -234,6 +234,8 @@
 </form>
 </fieldset>
 </td></tr></table>
+{% elif user.is_authenticated %}
+you didn't sign up for this game (or didn't confirm)
 {% else %}
 log in to delegate
 {% endif %}

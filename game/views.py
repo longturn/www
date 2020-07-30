@@ -39,7 +39,6 @@ def game(request, gamename):
 	form = None
 	delegateform = None
 	if not old:
-		joineds = list(Joined.objects.filter(game=game))
 		try:
 			hasjoined = Joined.objects.get(game=game, user=request.user)
 		except:
@@ -65,6 +64,13 @@ def game(request, gamename):
 				joined = Joined.objects.get(game=game, user=request.user)
 				joined.delegation = None
 				joined.save()
+
+		joineds = None
+		if game.date_started and game.date_started + datetime.timedelta(7) < datetime.datetime.now():
+			joineds = list(Joined.objects.filter(game=game, confirmed=True))
+			if hasjoined and not hasjoined.confirmed:
+				hasjoined = None
+		else:
 			joineds = list(Joined.objects.filter(game=game))
 
 		if request.method == 'POST' and game.open == True:
