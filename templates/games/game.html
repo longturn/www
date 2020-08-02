@@ -263,7 +263,7 @@ log in to delegate
 {% for p in joineds %}
 <tr class="{% cycle row0 row1 %}">
 	<td>{{ forloop.counter }}</td>
-	<td>{{ p.user }}</td>
+	<td>{{ p.user.username }}</td>
 	<td><center><img width=16 height=16 {% if p.is_winner %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
 	<td><center><img width=16 height=16 {% if p.is_idler %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
 </tr>
