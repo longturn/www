@@ -20,7 +20,7 @@
 	<th width=100>ended</th>
 	{% for j in joineds %}
 	<tr class="{% cycle row0 row1 %}">
-	<td><a href="{% url 'game' j.game %}">{{ j.game }}</a></td>
+	<td><a href="{% url 'game' j.game.name %}">{{ j.game.name }}</a></td>
 	{% if j.nation %}
 	<td><img class="flag" src="{{ j.nation|flag_url }}"> The {{ j.nation }}</td>
 	{% else %}
