@@ -43,6 +43,8 @@ class Game(models.Model):
 		return self.date_ended != None
 	def __unicode__(self):
 		return self.name
+	def __str__(self):
+		return self.name
 
 class Team(models.Model):
 	name		= models.CharField(max_length=128)
@@ -56,6 +58,8 @@ class Team(models.Model):
 #	def __unicode__(self):
 #		return "%s/%s" % (self.game, self.name)
 	def __unicode__(self):
+		return "%s" % (self.name)
+	def __str__(self):
 		return "%s" % (self.name)
 
 class Joined(models.Model):
@@ -73,4 +77,6 @@ class Joined(models.Model):
 		unique_together = ('game', 'user')
 
 	def __unicode__(self):
+		return "%s/%s" % (self.game, self.user)
+	def __str__(self):
 		return "%s/%s" % (self.game, self.user)
