@@ -241,7 +241,7 @@ flags = {
 	"Iroquois": "iroquois",
 	"Israeli": "israel",
 	"Israelite": "israel_ancient",
-	"Italian Greek": "italiangreek",
+	"Italian Greek": "italian_greek",
 	"Italian": "italy",
 	"Ivoirian": "ivory_coast",
 	"Jaffna": "jaffna",
