@@ -274,7 +274,7 @@ flags = {
 	"Kushan": "kushan",
 	"Kuwaiti": "kuwait",
 	"Kyrgyz": "kyrgyzstan",
-	"Langobardic": "langobardic",
+	"Langobardic": "lombardy",
 	"Lankese": "srilanka",
 	"Laotian": "laos",
 	"Latin": "latin_empire",
