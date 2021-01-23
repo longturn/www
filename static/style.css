@@ -1,6 +1,10 @@
 header {
     background-color: #050505;
     background-image: url("/static/units.png");
+    color: #ec9b44;
+    font-size: larger;
+    font-family: sans-serif;
+    font-weight: bold;
     text-align: center;
     width: 100%;
 }
@@ -8,7 +12,6 @@ header {
 header > div {
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
     padding: 2em 0;
     width: 50em;
 }
