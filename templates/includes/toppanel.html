@@ -1,25 +1,5 @@
 <header>
 <div>
 	<a href="{% url 'hello' %}"><img class="logo" src="{{ STATIC_URL }}/logo.png" alt="LONGTURN"/></a>
-	<table class="toppanel">
-		<th>game</th>
-		<th>server</th>
-		<th>port</th>
-		{% for g in active_games %}
-		<tr>
-			<td>{{ g.name }}</td>
-			<td>{{ g.host }}</td>
-			{% if g.startin >= 0 %}
-				<td>start in: {{ g.startin }} days</td>
-			{% else %}
-				{% if g.port %}
-					<td>{{ g.port }}</td>
-				{% else %}
-					<td> </td>
-				{% endif %}
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</table>
 </div>
 </header>
