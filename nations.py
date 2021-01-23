@@ -195,6 +195,7 @@ flags = {
 	"Ghana": "ghana_ancient",
 	"Ghaznavid": "ghaznavid",
 	"Gokturk": "gokturk", # compat
+	"Göktürk": "gokturk",
 	"Golden Horde": "golden_horde",
 	"Gothic": "gothic",
 	"Greater Polish": "greater_poland",
