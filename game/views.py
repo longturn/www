@@ -177,5 +177,5 @@ def nations_v(request):
                 request,
 		'games/nations.html',
 		{
-			'flags': nations.flags,
+                    'flags': {nation: nations.flags[nation] for nation in nations.nations},
 		})
