@@ -16,6 +16,7 @@ from longturn.player.models import Player
 from django.contrib.auth.models import User
 from longturn.serv.models import ServGlobalData, ServUserData
 from longturn import nations
+import copy
 import datetime
 import os
 
@@ -173,9 +174,11 @@ def game_list(request):
 		})
 
 def nations_v(request):
+	nations_list = copy.copy(nations.nations)
+	nations_list.remove('random')
 	return render(
                 request,
 		'games/nations.html',
 		{
-                    'flags': {nation: nations.flags[nation] for nation in nations.nations},
+                    'flags': {nation: nations.flags[nation] for nation in nations_list},
 		})

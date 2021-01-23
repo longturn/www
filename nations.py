@@ -567,7 +567,7 @@ flags = {
 	"Zulu": "zulu",
 }
 
-nations = (
+nations = [
 	"random",
 	"Abkhaz",
 	"Australian Aboriginal",
@@ -1127,5 +1127,5 @@ nations = (
 	"Zhuang",
 	"Zimbabwean",
 	"Zulu",
-)
+]
 
