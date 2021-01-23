@@ -1,3 +1,9 @@
+header {
+    background-color: #050505;
+    background-image: url("/static/units.png");
+    width: 100%;
+}
+
 body {
 	background-image: url("/static/background.png");
 	margin: 0 0 0 0;
