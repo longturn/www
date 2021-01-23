@@ -1,4 +1,5 @@
 flags = {
+        "random": "random",
 	"Abkhaz": "abkhazia",
 	"Australian Aboriginal": "aborigines",
 	"Abyssinian": "ethiopia_old",
