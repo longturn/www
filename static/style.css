@@ -1,7 +1,15 @@
 header {
     background-color: #050505;
     background-image: url("/static/units.png");
+    text-align: center;
     width: 100%;
+}
+
+header > div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50em;
 }
 
 body {

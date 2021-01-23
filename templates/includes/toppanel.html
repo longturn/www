@@ -1,11 +1,6 @@
 <header>
-<table width=100%>
-
-<tr>
-<td width=200>
+<div>
 	<a href="{% url 'hello' %}"><img class="logo" src="{{ STATIC_URL }}/logo.png"></a>
-</td>
-<td>
 	<table class="toppanel" align=center valign=center>
 		<th>game</th>
 		<th>server</th>
@@ -26,9 +21,7 @@
 		</tr>
 		{% endfor %}
 	</table>
-</td>
-</tr>
-</table>
+</div>
 </header>
 
 <script type="text/javascript">
