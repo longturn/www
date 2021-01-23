@@ -7,11 +7,10 @@ header {
 body {
 	background-image: url("/static/background.png");
 	margin: 0 0 0 0;
-	font-size: 10pt;
 }
 
 table {
-	font-size: 10pt;
+	font-size: smaller;
 }
 
 th {
@@ -19,7 +18,7 @@ th {
 }
 
 table.toppanel {
-	font-size: 10pt;
+	font-size: smaller;
 	color: #DDBB88;
 	background-color: #111111;
 }
