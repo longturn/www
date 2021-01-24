@@ -23,11 +23,6 @@
 		{% endfor %}
 	</table>
 	<ul class="panel">
-	{% for g in active_games %}
-	<li><a class="menu" href="{% url 'game' g.name %}">{{ g.name }}</a></li>
-	{% endfor %}
-	</ul>
-	<ul class="panel">
 	<li><a class="menu" href="{% url 'game_list' %}">all games</a></li>
 	</ul>
 
