@@ -1,38 +1,39 @@
 <h3>LONGTURN</h3>
 <ul class="panel">
-	<li><a class="menu" href="{% url 'hello' %}">HOME</a></li>
-	<li><a class="menu" href="{% url 'intro' %}">intro</a></li>
-	<li><a class="menu" href="{% url 'rules' %}">LT rules</a></li>
-	<li><a class="menu" href="{% url 'lw_rules' %}">LW rules</a></li>
+    <li><a class="menu" href="{% url 'hello' %}">Home</a></li>
+    <li><a class="menu" href="{% url 'intro' %}">Intro</a></li>
+    <li><a class="menu" href="{% url 'rules' %}">Rules</a></li>
+    <li><a class="menu" href="{% url 'screenshots' %}">Screenshots</a></li>
+    <li><a class="menu" href="https://longturn21.blogspot.com">Blog</a></li>
+    <li><a class="menu" href="{% url 'contact' %}">Contact</a></li>
 </ul>
 <h3>COMMUNITY</h3>
 <ul class="panel">
-	<li><a class="menu" href="https://forum.longturn.net">forum</a></li>
-	<li><a class="menu" href="https://discord.gg/98krqGm">Discord</a></li>
-	<li><a class="menu" href="{% url 'players' %}">players</a></li>
-	<li><a class="menu" href="{% url 'contact' %}">contact</a></li>
+    <li><a class="menu" href="https://forum.longturn.net">Forum</a></li>
+    <li><a class="menu" href="https://discord.gg/98krqGm">Discord</a></li>
+    <li><a class="menu" href="{% url 'players' %}">Players</a></li>
 </ul>
 <h3>TECHNICAL</h3>
 <ul class="panel">
-	<li><a class="menu" href="{% url 'tech_comps' %}">machines</a></li>
-	<li><a class="menu" href="https://github.com/longturn">github</a></li>
+    <li><a class="menu" href="{% url 'tech_comps' %}">Machines</a></li>
+    <li><a class="menu" href="{% url 'warcalc' %}">Combat calculator</a></li>
+    <li><a class="menu" href="https://github.com/longturn">Github</a></li>
 </ul>
-<h3>EXTRAS</h3>
+<h3>HISTORICAL</h3>
 <ul class="panel">
-	<li><a class="menu" href="{% url 'ranking' %}">ranking</a></li>
-	<li><a class="menu" href="{% url 'warcalc' %}">war calculator</a></li>
-	<li><a class="menu" href="{% url 'screenshots' %}">screenshots</a></li>
+    <li><a class="menu" href="{% url 'ranking' %}">Ranking</a></li>
+    <li><a class="menu" href="{% url 'lw_rules' %}">Ladder Wars</a></li>
 </ul>
-<h3>MY ACCOUNT</h3>
+<h3>ACCOUNT</h3>
 <ul class="panel">
-	{% if user.is_authenticated %}
-		<li><a class="menu" href="{% url 'myprofile' %}">{{ user }}'s profile</a></li>
-		<li><a class="menu" href="{% url 'logout' %}">log out</a></li>
-	{% else %}
-		<li><a class="menu" href="{% url 'login' %}">log in</a></li>
-		<li><a class="menu" href="{% url 'register' %}">register</a></li>
-	{% endif %}
-	{% if user.is_staff %}
-		<li><a class="menu" href="{% url 'admin:index' %}">admin</a></li>
-	{% endif %}
+    {% if user.is_authenticated %}
+        <li><a class="menu" href="{% url 'myprofile' %}">{{ user }}'s profile</a></li>
+        <li><a class="menu" href="{% url 'logout' %}">Log out</a></li>
+    {% else %}
+        <li><a class="menu" href="{% url 'login' %}">Log in</a></li>
+        <li><a class="menu" href="{% url 'register' %}">Register</a></li>
+    {% endif %}
+    {% if user.is_staff %}
+        <li><a class="menu" href="{% url 'admin:index' %}">Admin site</a></li>
+    {% endif %}
 </ul>
