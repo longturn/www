@@ -1,39 +1,30 @@
-<table>
-<tr>
-	<ul class="panel">
+<h3>LONGTURN</h3>
+<ul class="panel">
 	<li><a class="menu" href="{% url 'hello' %}">HOME</a></li>
 	<li><a class="menu" href="{% url 'intro' %}">intro</a></li>
 	<li><a class="menu" href="{% url 'rules' %}">LT rules</a></li>
 	<li><a class="menu" href="{% url 'lw_rules' %}">LW rules</a></li>
-	</ul>
-</tr>
-<tr>
-	<h3>COMMUNITY</h3>
-	<ul class="panel">
+</ul>
+<h3>COMMUNITY</h3>
+<ul class="panel">
 	<li><a class="menu" href="https://forum.longturn.net">forum</a></li>
 	<li><a class="menu" href="https://discord.gg/98krqGm">Discord</a></li>
 	<li><a class="menu" href="{% url 'players' %}">players</a></li>
 	<li><a class="menu" href="{% url 'contact' %}">contact</a></li>
-	</ul>
-</tr>
-<tr>
-	<h3>TECHNICAL</h3>
-	<ul class="panel">
+</ul>
+<h3>TECHNICAL</h3>
+<ul class="panel">
 	<li><a class="menu" href="{% url 'tech_comps' %}">machines</a></li>
 	<li><a class="menu" href="https://github.com/longturn">github</a></li>
-	</ul>
-</tr>
-<tr>
-	<h3>EXTRAS</h3>
-	<ul class="panel">
+</ul>
+<h3>EXTRAS</h3>
+<ul class="panel">
 	<li><a class="menu" href="{% url 'ranking' %}">ranking</a></li>
 	<li><a class="menu" href="{% url 'warcalc' %}">war calculator</a></li>
 	<li><a class="menu" href="{% url 'screenshots' %}">screenshots</a></li>
-	</ul>
-</tr>
-<tr>
-	<h3>MY ACCOUNT</h3>
-	<ul class="panel">
+</ul>
+<h3>MY ACCOUNT</h3>
+<ul class="panel">
 	{% if user.is_authenticated %}
 		<li><a class="menu" href="{% url 'myprofile' %}">{{ user }}'s profile</a></li>
 		<li><a class="menu" href="{% url 'logout' %}">log out</a></li>
@@ -44,6 +35,4 @@
 	{% if user.is_staff %}
 		<li><a class="menu" href="{% url 'admin:index' %}">admin</a></li>
 	{% endif %}
-	</ul>
-</tr>
-</table>
+</ul>
