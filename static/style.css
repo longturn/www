@@ -16,6 +16,7 @@ body::before {
 }
 
 header {
+    padding: 2rem 1rem;
     grid-column: 3 / 4;
     grid-row: 1 / 2;
 }
@@ -42,7 +43,6 @@ header {
     font-size: larger;
     font-family: sans-serif;
     font-weight: bold;
-    padding: 2rem 0;
 }
 
 body {
@@ -196,7 +196,7 @@ input.button:hover { background-color: #BBAA77; }
 
 img.flag { vertical-align: middle; }
 img.glyph { vertical-align: middle; }
-img.logo { vertical-align: middle; }
+img.logo { vertical-align: -20px; }
 
 a { text-decoration: underline; }
 a.menu { text-decoration: none; }
