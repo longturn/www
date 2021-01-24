@@ -6,16 +6,9 @@
 	<title>Longturn | {% block title %}{% endblock %}</title>
 </head>
 <body>
-
 {% include 'includes/toppanel.html' %}
-<center>
-<table>
-<tr>
-<td width=150 valign=top>{% include 'includes/leftpanel.html' %}</td>
-<td width=700 valign=top>{% block content %}{% endblock %}</td>
-<td width=150 valign=top>{% include 'includes/rightpanel.html' %}</td>
-</tr>
-</table>
-</center>
+<div class="leftpanel">{% include 'includes/leftpanel.html' %}</div>
+<div class="mainpanel">{% block content %}{% endblock %}</div>
+<div class="rightpanel">{% include 'includes/rightpanel.html' %}</div>
 </body>
 </html>

@@ -1,6 +1,42 @@
-header {
+/* Layout */
+body {
+    display: grid;
+    /* gutter left main right gutter */
+    grid-template-columns: auto 10rem minmax(30rem, 50rem) 20rem auto;
+    margin: 0;
+}
+
+/* Just for the background */
+body::before {
     background-color: #050505;
     background-image: url("/static/units.png");
+    content: "";
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+}
+
+header {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+
+div.leftpanel {
+    grid-column: 2 / 3;
+    padding: 10px;
+}
+
+div.mainpanel {
+    grid-column: 3 / 4;
+    padding: 10px;
+}
+
+div.rightpanel {
+    grid-column: 4 / 5;
+    padding: 10px;
+}
+
+/* Styling */
+header {
     color: #ec9b44;
     font-size: larger;
     font-family: sans-serif;
@@ -102,26 +138,6 @@ td.cat {
 td.val {
 	padding: 0.0em 1ex 0.0em 1ex;
 	text-align: left;
-}
-
-div.toppanel {
-	float: top;
-}
-
-div.leftpanel {
-	border: 0px;
-	padding: 10px 10px 10px 10px;
-	margin: 0px 0px 0px 0px;
-	float: left;
-}
-
-div.rightpanel {
-	padding: 10px 10px 10px 10px;
-	float: right;
-}
-
-div.mainpanel {
-	padding: 10px 10px 10px 10px;
 }
 
 ul.panel {
