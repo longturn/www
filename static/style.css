@@ -26,7 +26,6 @@ th {
 }
 
 table.toppanel {
-	font-size: smaller;
 	color: #DDBB88;
 	background-color: #111111;
 }
@@ -46,13 +45,10 @@ table.toppanel th {
 	cellpadding: 1;
 }
 
-table.toppanel a {
-    color: #63c500;
-}
-
+table.toppanel a,
 table.toppanel a:hover,
 table.toppanel a:visited {
-    color: #57ad00;
+    color: #DDBB88;
 }
 
 table.longturn {
