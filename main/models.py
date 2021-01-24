@@ -16,7 +16,7 @@ def paths(request):
 def active_games(request):
 	mindate = datetime.datetime(datetime.MAXYEAR, 1, 1)
 	games = [ g for g in Game.objects.all() if g.has_ended() == False ]
-	games.sort(key=lambda x: x.date_started or mindate, reverse=False)
+	games.sort(key=lambda x: x.date_started or mindate, reverse=True)
 	for g in games:
 		if g.port:
 			g.to = int(round(time.time()))
