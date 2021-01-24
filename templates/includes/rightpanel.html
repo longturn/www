@@ -8,7 +8,7 @@
 		<th>port</th>
 		{% for g in active_games %}
 		<tr>
-			<td>{{ g.name }}</td>
+            <td><a href="{% url 'game' g.name %}">{{ g.name }}</a></td>
 			<td>{{ g.host }}</td>
 			{% if g.startin >= 0 %}
 				<td>start in: {{ g.startin }} days</td>

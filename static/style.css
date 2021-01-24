@@ -46,6 +46,15 @@ table.toppanel th {
 	cellpadding: 1;
 }
 
+table.toppanel a {
+    color: #63c500;
+}
+
+table.toppanel a:hover,
+table.toppanel a:visited {
+    color: #57ad00;
+}
+
 table.longturn {
 	padding: 0.0em 0ex 0.0em 0ex;
 	background-color: #CCBB88;
