@@ -229,6 +229,9 @@ input.button {
 }
 input.button:hover { background-color: #BBAA77; }
 
+img {
+    max-width: 100%;
+}
 img.flag { vertical-align: middle; }
 img.glyph { vertical-align: middle; }
 img.logo { vertical-align: -20px; }
