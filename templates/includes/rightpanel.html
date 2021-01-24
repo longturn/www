@@ -1,28 +1,23 @@
 {% load temps %}
-	<h3>Active games</h3>
-	<table class="toppanel">
-		<th>game</th>
-		<th>server</th>
-		<th>port</th>
-		{% for g in active_games %}
-		<tr>
-            <td><a class="menu" href="{% url 'game' g.name %}">{{ g.name }}</a></td>
-			<td>{{ g.host }}</td>
-			{% if g.startin >= 0 %}
-				<td>start in: {{ g.startin }} days</td>
-			{% else %}
-				{% if g.port %}
-					<td>{{ g.port }}</td>
-				{% else %}
-					<td> </td>
-				{% endif %}
-			{% endif %}
-		</tr>
-		{% endfor %}
-	</table>
-	<ul class="panel">
-	<li><a class="menu" href="{% url 'game_list' %}">all games</a></li>
-	</ul>
+<h3>Active games</h3>
+<ul class="games panel">
+    {% for g in active_games %}
+        {% if g.port %}
+            <li class="running">
+        {% else %}
+            <li>
+        {% endif %}
+        <a class="game menu" href="{% url 'game' g.name %}">{{ g.name }}</a>
+        {% if g.startin >= 0 %}
+            Start in {{ gg.startin }} days, <a href="{% url 'game' g.name %}">join now!</a>
+        {% elif g.port %}
+            Running port {{ g.port }}
+        {% else %}
+            <a href="{% url 'game' g.name %}">Join now!<a>
+        {% endif %}
+    {% endfor %}
+    <li><a class="menu" href="{% url 'game_list' %}">All games</a></li>
+</ul>
 
 	<iframe src="https://hangover.games/l.html" 
 		width="80" height="468" 
