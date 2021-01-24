@@ -37,19 +37,12 @@ div.rightpanel {
 
 /* Styling */
 header {
+    background-color: #0006;
     color: #ec9b44;
     font-size: larger;
     font-family: sans-serif;
     font-weight: bold;
-    text-align: center;
-    width: 100%;
-}
-
-header > div {
-    display: inline-flex;
-    align-items: center;
-    padding: 2em 0;
-    width: 50em;
+    padding: 2rem 0;
 }
 
 body {
