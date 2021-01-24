@@ -172,13 +172,22 @@ ul.panel {
 	padding-left: 20px;
 }
 
-div.leftpanel {
+div.leftpanel,
+div.rightpanel {
     padding: 2.5rem 1.5rem;
     background: #fff1;
+}
+
+div.leftpanel {
     border-left: 1px solid #0002;
 }
 
-div.leftpanel > h3 {
+div.rightpanel {
+    border-right: 1px solid #0002;
+}
+
+div.leftpanel > h3,
+div.rightpanel > h3 {
     text-transform: uppercase;
 }
 
