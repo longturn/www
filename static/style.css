@@ -182,6 +182,10 @@ h1 {
     margin: 1rem 0;
 }
 
+h2 {
+    border-bottom: 2px solid #ba7;
+}
+
 fieldset {
 	background-color: rgba(170, 153, 102, .2);
 	border: 1px solid #443300;

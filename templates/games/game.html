@@ -5,7 +5,6 @@
 {% block title %}{{ game }}{% endblock %}
 {% block content %}
 <h1>Longturn - {{ game.name }}</h1>
-<hr>
 <table>
 <tr>
 <td valign=top>
@@ -115,7 +114,6 @@
 </table>
 </fieldset>
 </table>
-<hr>
 
 
 <h2>description</h2>
@@ -124,7 +122,6 @@
 {{ game.descr }}
 {% endautoescape %}
 </p>
-<hr>
 
 {% if not old %}
 
@@ -218,7 +215,6 @@
       {% endif %}
     {% endif %}
   {% endif %}
-<hr>
 {% if user.is_authenticated and hasjoined %}
 <table><tr><td valign="top">
 <fieldset style="width: 420">
@@ -242,7 +238,6 @@ log in to delegate
 {% endif %}
 
 {% if serv %}
-<hr>
 {% autoescape off %}
 {{ "population"|graph:game.name }}
 {{ "cities"|graph:game.name }}

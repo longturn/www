@@ -3,7 +3,6 @@
 {% block title %}War Calculator{% endblock %}
 {% block content %}
 <h1>War Calculator</h1>
-<hr>
 <p>
 Have a look at <a href="http://freeciv.wikia.com/wiki/Combat">combat of
 Freeciv</a> and <a href="http://freeciv.wikia.com/wiki/Math">math of
@@ -36,12 +35,10 @@ Freeciv</a> before using this calculator.
 
 
 {% if tab %}
-<hr>
 <h2>results</h2>
 <p>
 The attack will succeed with <b>{{ prob }}</b>% chance.
 </p>
-<hr>
 <p>
 This table describes how many attackers are needed to kill one defender.
 It is assumed that the defender will not get promoted.
@@ -73,7 +70,6 @@ def prob - failed attack probability<br>
 def hp - expected defender hitpoints left, after the attack<br>
 def delta - expected hitpoints lost to the defender<br>
 {% if plot %}
-<hr>
 <p>
 This plot shows how many hitpoints the defender will have after the
 attack. This is only useful for defenders much stronger than attackers.

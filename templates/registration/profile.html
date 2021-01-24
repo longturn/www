@@ -7,7 +7,6 @@
 	The specified player <b>{{username}}</b> does not exist.
 {% else %}
 	<h1>{{ player }}</h1>
-	<hr>
 
 	{% if joineds %}
 	<h2>games</h2>
@@ -33,8 +32,7 @@
 	</tr>
 	{% endfor %}
 	</table>
-	<hr>
-	{% endif %}
+    {% endif %}
 
 	<p>
 	{% if player.profile.forum_account %}
