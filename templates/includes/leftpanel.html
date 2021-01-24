@@ -1,4 +1,4 @@
-<h3>LONGTURN</h3>
+<h3>Longturn</h3>
 <ul class="panel">
     <li><a class="menu" href="{% url 'hello' %}">Home</a></li>
     <li><a class="menu" href="{% url 'intro' %}">Intro</a></li>
@@ -7,24 +7,24 @@
     <li><a class="menu" href="https://longturn21.blogspot.com">Blog</a></li>
     <li><a class="menu" href="{% url 'contact' %}">Contact</a></li>
 </ul>
-<h3>COMMUNITY</h3>
+<h3>Community</h3>
 <ul class="panel">
     <li><a class="menu" href="https://forum.longturn.net">Forum</a></li>
     <li><a class="menu" href="https://discord.gg/98krqGm">Discord</a></li>
     <li><a class="menu" href="{% url 'players' %}">Players</a></li>
 </ul>
-<h3>TECHNICAL</h3>
+<h3>Technical</h3>
 <ul class="panel">
     <li><a class="menu" href="{% url 'tech_comps' %}">Machines</a></li>
     <li><a class="menu" href="{% url 'warcalc' %}">Combat calculator</a></li>
     <li><a class="menu" href="https://github.com/longturn">Github</a></li>
 </ul>
-<h3>HISTORICAL</h3>
+<h3>Historical</h3>
 <ul class="panel">
     <li><a class="menu" href="{% url 'ranking' %}">Ranking</a></li>
     <li><a class="menu" href="{% url 'lw_rules' %}">Ladder Wars</a></li>
 </ul>
-<h3>ACCOUNT</h3>
+<h3>Account</h3>
 <ul class="panel">
     {% if user.is_authenticated %}
         <li><a class="menu" href="{% url 'myprofile' %}">{{ user }}'s profile</a></li>
