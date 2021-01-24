@@ -28,7 +28,7 @@ div.leftpanel {
 
 div.mainpanel {
     grid-column: 3 / 4;
-    padding: 10px;
+    padding: 1rem;
 }
 
 div.rightpanel {
@@ -48,6 +48,12 @@ header {
 body {
 	background-image: url("/static/background.png");
 	margin: 0 0 0 0;
+}
+
+div.mainpanel {
+    border-left: 1px solid #0002;
+    border-right: 1px solid #0002;
+    background: #00000009;
 }
 
 th {
