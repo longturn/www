@@ -1,82 +1,73 @@
 {% extends "includes/base.html" %}
 {% load temps %}
 
-{% block title %}screenshots{% endblock %}
+{% block title %}Screenshots{% endblock %}
 {% block content %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<link rel="stylesheet" href='{{ STATIC_URL }}/hoverbox/hoverbox.css' type="text/css" media="screen, projection" />
-<!--[if lte IE 7]>
-<link rel="stylesheet" href='{{ STATIC_URL }}/hoverbox/ie_fixes.css' type="text/css" media="screen, projection" />
-<![endif]-->
 
-<h1>screenshots</h1>
+<h1>Screenshots</h1>
 
 <h2>LT51</h2>
 <p>
-<ul class="hoverbox">
-<li><a href="{{ MEDIA_URL }}/screenshots/lt51/summary.gif"><img src="{{ MEDIA_URL }}/screenshots/lt51/summary.gif" alt="LT51 animated map" /><img src="{{ MEDIA_URL }}/screenshots/lt51/summary.gif" alt="description" class="preview" /></a></li>
-</ul>
+<a href="{% url 'game' 'LT51' %}">LT51</a> was the second iteration in a series
+of two-teams island games that had started in 2019. It was decided when the best
+farmer set up an attack on the opposing team's most powerful player and took his
+capital city.
 </p>
+<ul class="image-list">
+<li><a href="{{ MEDIA_URL }}/screenshots/lt51/summary.gif"><img src="{{ MEDIA_URL }}/screenshots/lt51/summary.gif" alt="Animated map" /></a></li>
+</ul>
 
 <h2>LT50</h2>
 <p>
-<ul class="hoverbox">
-<li><a href="{{ MEDIA_URL }}/screenshots/lt50/summary.gif"><img src="{{ MEDIA_URL }}/screenshots/lt50/summary.gif" alt="LT50 animated map" /><img src="{{ MEDIA_URL }}/screenshots/lt50/summary.gif" alt="description" class="preview" /></a></li>
-</ul>
+Played in 2020, <a href="{% url 'game' 'LT50' %}">LT50</a> used a classic
+land-based map. A swift counter attack followed the first use of nuclear weapons
+by the dominant power, ending the game in a draw.
 </p>
-
-<h2>LT26</h2>
-<p>
-<ul class="hoverbox">
-<li><a href="{{ MEDIA_URL }}/screenshots/lt26/lt26.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt26/lt26.001.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt26/lt26.001.png" alt="description" class="preview" /></a></li>
+<ul class="image-list">
+<li><a href="{{ MEDIA_URL }}/screenshots/lt50/summary.gif"><img src="{{ MEDIA_URL }}/screenshots/lt50/summary.gif" alt="Animated map" /></a></li>
 </ul>
-</p>
-
-<h2>LT27</h2>
-<p>
-<ul class="hoverbox">
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.001.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.001.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.002.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.002.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.002.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.003.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.003.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.003.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.004.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.004.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.004.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.005.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.005.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.005.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.006.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.006.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.006.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.007.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.007.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.007.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.008.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.008.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.008.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.009.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.009.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.009.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.010.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.010.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.010.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.011.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.011.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.011.png" alt="description" class="preview" /></a></li>
-</ul>
-</p>
-
-<h2>LTeX23</h2>
-<p>
-<ul class="hoverbox">
-<li><a href="{{ MEDIA_URL }}/screenshots/ltex23/ltex23.001.png"><img src="{{ MEDIA_URL }}/screenshots/ltex23/ltex23.001.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/ltex23/ltex23.001.png" alt="description" class="preview" /></a></li>
-</ul>
-</p>
-
-<h2>LT28</h2>
-<p>
-<ul class="hoverbox">
-<li><a href="{{ MEDIA_URL }}/screenshots/lt28/lt28.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt28/lt28.001.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt28/lt28.001.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt28/lt28.002.png"><img src="{{ MEDIA_URL }}/screenshots/lt28/lt28.002.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt28/lt28.002.png" alt="description" class="preview" /></a></li>
-</ul>
-</p>
 
 <h2>LT29</h2>
-<p>
-<ul class="hoverbox">
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.001.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.001.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.002.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.002.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.002.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.003.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.003.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.003.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.004.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.004.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.004.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.005.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.005.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.005.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.006.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.006.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.006.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.007.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.007.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.007.png" alt="description" class="preview" /></a></li>
-<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.008.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.008.png" alt="description" /><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.008.png" alt="description" class="preview" /></a></li>
+<ul class="image-list">
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.001.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.002.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.002.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.003.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.003.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.004.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.004.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.005.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.005.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.006.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.006.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.007.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.007.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt29/lt29.008.png"><img src="{{ MEDIA_URL }}/screenshots/lt29/lt29.008.png" alt="Map screenshot" /></a></li>
 </ul>
-</p>
+
+<h2>LT28</h2>
+<ul class="image-list">
+<li><a href="{{ MEDIA_URL }}/screenshots/lt28/lt28.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt28/lt28.001.png" alt="LT28 map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt28/lt28.002.png"><img src="{{ MEDIA_URL }}/screenshots/lt28/lt28.002.png" alt="LT28 map screenshot" /></a></li>
+</ul>
+
+<h2>LT27</h2>
+<ul class="image-list">
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.001.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.002.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.002.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.003.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.003.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.004.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.004.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.005.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.005.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.006.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.006.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.007.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.007.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.008.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.008.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.009.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.009.png" alt="Map screenshot" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.010.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.010.png" alt="City screen with 16 cannons" /></a></li>
+<li><a href="{{ MEDIA_URL }}/screenshots/lt27/lt27.011.png"><img src="{{ MEDIA_URL }}/screenshots/lt27/lt27.011.png" alt="Map screenshot" /></a></li>
+</ul>
+
+<h2>LT26</h2>
+<ul class="image-list">
+<li><a href="{{ MEDIA_URL }}/screenshots/lt26/lt26.001.png"><img src="{{ MEDIA_URL }}/screenshots/lt26/lt26.001.png" alt="Map screenshot" /></a></li>
+</ul>
+
+<h2>LTeX23</h2>
+<ul class="image-list">
+<li><a href="{{ MEDIA_URL }}/screenshots/ltex23/ltex23.001.png"><img src="{{ MEDIA_URL }}/screenshots/ltex23/ltex23.001.png" alt="Map screenshot" /></a></li>
+</ul>
 
 {% endblock %}

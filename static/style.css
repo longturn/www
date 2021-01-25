@@ -307,6 +307,20 @@ img.flag { vertical-align: middle; }
 img.glyph { vertical-align: middle; }
 img.logo { vertical-align: -20px; }
 
+ul.image-list {
+    list-style: none;
+    padding: 0;
+}
+
+ul.image-list > li {
+    display: inline;
+    list-style: none;
+}
+
+ul.image-list img {
+    max-width: 32%;
+}
+
 a { text-decoration: underline; }
 a.menu { text-decoration: none; }
 a:link { color: #224400; }
