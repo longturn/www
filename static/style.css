@@ -86,8 +86,8 @@ nav.topmenu li {
 }
 
 nav.topmenu li:not(:first-child)::before {
-  content: "🞙";
-  color: #888;
+  content: "•";
+  color: #999;
   padding: 0 1rem;
 }
 
