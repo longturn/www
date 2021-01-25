@@ -255,6 +255,44 @@ input {
 input:hover { background-color: #CCBB88; }
 input:focus { background-color: #CCBB88; }
 
+/* Used for big "join here" buttons */
+p.button {
+    text-align: center;
+}
+
+/* "Join here" */
+a.button {
+    background-color: white;
+    border: 1px gray;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+a.button:hover {
+    background-color: #eee;
+}
+
+a.button.discord {
+    /* Official Discord colors */
+    background-color: #7289DA;
+    background-image: url("/static/nonfree/discord-logo.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10rem;
+    border-bottom: 1px solid #23272A;
+    border-right: 1px solid #23272A;
+    color: transparent;
+    display: inline-block;
+    height: 5rem;
+    width: 12rem;
+}
+
+a.button:hover {
+    /* Official Discord color */
+    background-color: #99AAB5;
+}
+
 input.button {
 	width: 200px;
 	background-color: #AA9966;
