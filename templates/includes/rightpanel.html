@@ -13,7 +13,7 @@
         {% elif g.port %}
             Running port {{ g.port }}
         {% else %}
-            <a href="{% url 'game' g.name %}">Join now!<a>
+            <a href="{% url 'game' g.name %}">Join now!</a>
         {% endif %}
     {% endfor %}
     <li><a class="menu" href="{% url 'game_list' %}">All games</a></li>
