@@ -284,6 +284,7 @@ a.button.discord {
     border-right: 1px solid #23272A;
     color: transparent;
     display: inline-block;
+    font-size: 0;
     height: 5rem;
     width: 12rem;
 }
