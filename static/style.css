@@ -4,7 +4,7 @@ body {
     font-family: "Times New Roman", 'Times', "serif";
     font-size: 14pt;
     /* gutter left main right gutter */
-    grid-template-columns: auto 14rem minmax(30rem, 50rem) 20rem auto;
+    grid-template-columns: auto fit-content(15rem) minmax(30rem, 50rem) fit-content(15rem) auto;
     margin: 0;
 }
 
@@ -135,6 +135,7 @@ ul.games > li.open {
 }
 
 ul.games a.game {
+    display: block;
     font-weight: bold;
 }
 
