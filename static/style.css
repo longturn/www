@@ -2,6 +2,7 @@
 body {
     display: grid;
     font-family: "Times New Roman", 'Times', "serif";
+    font-size: 14pt;
     /* gutter left main right gutter */
     grid-template-columns: auto 14rem minmax(30rem, 50rem) 20rem auto;
     margin: 0;
