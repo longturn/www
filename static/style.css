@@ -85,6 +85,40 @@ div.mainpanel {
     background: #00000009;
 }
 
+ul.games {
+    list-style: none;
+    margin: 1.2rem 0;
+    padding: 0;
+}
+
+ul.games > li {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border: 1pt solid gray;
+    border-bottom: none;
+}
+
+ul.games > li:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+ul.games > li:last-child {
+    border-bottom: 1pt solid gray;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+ul.games > li {
+    background-color: #f0eded4a;
+}
+
+ul.games > li.running {
+    background-color: white;
+}
+
+ul.games a.game {
+    font-weight: bold;
+}
+
 th {
 	padding: 0.2em 0.5ex 0.2em 0.5ex;
 }
