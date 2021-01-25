@@ -26,6 +26,14 @@ nav.topmenu {
     grid-row: 2;
 }
 
+/* Smaller screens */
+@media screen and (max-width: 1360px) {
+    /* Full width headers */
+    header, nav.topmenu {
+        grid-column: 2 / 6;
+    }
+}
+
 div.leftpanel {
     grid-column: 2 / 3;
     grid-row: 3;
@@ -61,6 +69,15 @@ nav.topmenu > ul {
     margin: 0;
     padding: 0;
     text-align: center;
+}
+
+/* Smaller screens */
+@media screen and (max-width: 1360px) {
+    /* Looks better */
+    nav.topmenu > ul {
+        padding-left: 2rem;
+        text-align: left;
+    }
 }
 
 nav.topmenu li {
