@@ -1,6 +1,7 @@
 /* Layout */
 body {
     display: grid;
+    font-family: "Times New Roman", 'Times', "serif";
     /* gutter left main right gutter */
     grid-template-columns: auto 14rem minmax(30rem, 50rem) 20rem auto;
     margin: 0;
@@ -87,7 +88,7 @@ nav.topmenu li {
 
 nav.topmenu li:not(:first-child)::before {
   content: "•";
-  color: #999;
+  color: #888;
   padding: 0 1rem;
 }
 
