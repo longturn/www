@@ -277,3 +277,7 @@ a:hover {
 	text-decoration: underline;
 	color: black;
 }
+
+kbd {
+    font-size: 12pt;
+}

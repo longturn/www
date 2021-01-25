@@ -24,7 +24,7 @@ class PlayerField(forms.CharField):
 class JoinForm(forms.Form):
 	nation = NationField(
 		max_length=128,
-		help_text='Must be a valid nation or the word <tt>random</tt>, see <a href="/nations/">nations</a>.')
+		help_text='Must be a valid nation or the word <kbd>random</kbd>, see <a href="/nations/">nations</a>.')
 
 	def clean(self, *args, **kwargs):
 		return super(JoinForm, self).clean(*args, **kwargs)
