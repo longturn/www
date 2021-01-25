@@ -3,9 +3,9 @@
 <ul class="games panel">
     {% for g in active_games %}
         {% if g.port %}
-            <li class="running">
-        {% else %}
             <li>
+        {% else %}
+            <li class="open">
         {% endif %}
         <a class="game menu" href="{% url 'game' g.name %}">{{ g.name }}</a>
         {% if g.startin >= 0 %}

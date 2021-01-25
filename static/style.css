@@ -111,7 +111,7 @@ ul.games > li {
     background-color: #f0eded4a;
 }
 
-ul.games > li.running {
+ul.games > li.open {
     background-color: white;
 }
 
