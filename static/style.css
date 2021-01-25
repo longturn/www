@@ -123,32 +123,6 @@ th {
 	padding: 0.2em 0.5ex 0.2em 0.5ex;
 }
 
-table.toppanel {
-	color: #DDBB88;
-	background-color: #111111;
-}
-
-table.toppanel td {
-	padding: 0.0em 2ex 0.0em 2ex;
-	border: 1;
-	cellspacing: 1;
-	cellpadding: 1;
-	background-color: #222222;
-}
-
-table.toppanel th {
-	padding: 0.0em 2ex 0.0em 2ex;
-	border: 1;
-	cellspacing: 1;
-	cellpadding: 1;
-}
-
-table.toppanel a,
-table.toppanel a:hover,
-table.toppanel a:visited {
-    color: #DDBB88;
-}
-
 table.longturn {
 	padding: 0.0em 0ex 0.0em 0ex;
 	background-color: #CCBB88;
