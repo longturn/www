@@ -8,6 +8,31 @@
 
 <div class="frame-box">
 <fieldset>
+<legend>server info</legend>
+<table>
+<tr>
+	<td align=right>host:</td>
+	{% if game.host %}
+	<td><b>{{ game.host }}</b></td>
+	{% else %}
+	<td>unknown</td>
+	{% endif %}
+</tr>
+<tr>
+	<td align=right>port:</td>
+	{% if game.port %}
+	<td><b>{{ game.port }}</b></td>
+	{% else %}
+	<td>unknown</td>
+	{% endif %}
+</tr>
+<tr>
+	<td align=right>version:</td>
+	<td><b>{{ game.version }}</b></td>
+</tr>
+</table>
+</fieldset>
+<fieldset>
 <legend>game info</legend>
 <table>
 <tr>
@@ -82,31 +107,6 @@
 	<td>not yet ended</td>
 	{% endif %}
 	{% endif %}
-</tr>
-</table>
-</fieldset>
-<fieldset>
-<legend>server info</legend>
-<table>
-<tr>
-	<td align=right>host:</td>
-	{% if game.host %}
-	<td><b>{{ game.host }}</b></td>
-	{% else %}
-	<td>unknown</td>
-	{% endif %}
-</tr>
-<tr>
-	<td align=right>port:</td>
-	{% if game.port %}
-	<td><b>{{ game.port }}</b></td>
-	{% else %}
-	<td>unknown</td>
-	{% endif %}
-</tr>
-<tr>
-	<td align=right>version:</td>
-	<td><b>{{ game.version }}</b></td>
 </tr>
 </table>
 </fieldset>
