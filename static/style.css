@@ -237,6 +237,10 @@ p {
     line-height: 1.4;
 }
 
+div.frame-box {
+    display: flex;
+}
+
 fieldset {
 	background-color: rgba(170, 153, 102, .2);
 	border: 1px solid #443300;
