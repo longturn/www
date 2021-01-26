@@ -233,6 +233,10 @@ h2 {
     border-bottom: 2px solid #ba7;
 }
 
+p {
+    line-height: 1.4;
+}
+
 fieldset {
 	background-color: rgba(170, 153, 102, .2);
 	border: 1px solid #443300;
