@@ -39,18 +39,6 @@
 	<td align=right>mode:</td>
 	<td><b>{{ game.mode }}</b></td>
 </tr>
-{% if not old %}
-<tr>
-	<td align=right>max players:</td>
-	<td>{{ game.maxplayers }}</td>
-</tr>
-{% if game.mode == "team game" %}
-<tr>
-	<td align=right>max team size:</td>
-	<td>{{ game.maxteamsize }}</td>
-</tr>
-{% endif %}
-{% endif %}
 {% if game.admin != None %}
 <tr>
 	<td align=right>admin:</td>
