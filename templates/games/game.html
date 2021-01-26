@@ -53,7 +53,7 @@
 
 <div class="frame-box">
 <div>
-<h3>Connection info</h3>
+<h3>Game info</h3>
 <table>
 <tr>
 	<td align=right>Host:</td>
@@ -78,15 +78,10 @@
 </table>
 </div>
 <div>
-<h3>Game info</h3>
 <table>
-<tr>
-	<td align=right>mode:</td>
-	<td><b>{{ game.mode }}</b></td>
-</tr>
 {% if game.admin != None %}
 <tr>
-	<td align=right>admin:</td>
+	<td align=right>Admin:</td>
 	{% if old %}
 	<td>{{ game.admin }}</td>
 	{% else %}
@@ -96,16 +91,16 @@
 {% endif %}
 {% if not old %}
 <tr>
-	<td align=right>created:</td>
+	<td align=right>Created:</td>
 	<td>{{ game.date_created|date:"d.m.Y" }}</td>
 </tr>
 {% endif %}
 <tr>
 	{% if startin >= 0 %}
-		<td align=right>start in:</td>
+		<td align=right>Start in:</td>
 		<td><b>{{ startin }} days</b></td>
 	{% else %}
-		<td align=right>started:</td>
+		<td align=right>Started:</td>
 		{% if game.date_started != None %}
 		<td>{{ game.date_started|date:"d.m.Y" }}</td>
 		{% else %}
@@ -118,7 +113,7 @@
 	{% endif %}
 </tr>
 <tr>
-	<td align=right>ended:</td>
+	<td align=right>Ended:</td>
 	{% if game.date_ended != None %}
 	<td>{{ game.date_ended|date:"d.m.Y" }}</td>
 	{% else %}
