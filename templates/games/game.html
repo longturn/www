@@ -5,6 +5,8 @@
 {% block title %}{{ game }}{% endblock %}
 {% block content %}
 <h1>{{ game.name }}</h1>
+
+<div class="frame-box">
 <fieldset style="width: 320">
 <legend>game info</legend>
 <table>
@@ -108,6 +110,7 @@
 </tr>
 </table>
 </fieldset>
+</div>
 
 <p>
 {% autoescape off %}
