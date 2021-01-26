@@ -4,6 +4,7 @@
 
 {% block title %}{{ game }}{% endblock %}
 {% block content %}
+<div class="game-title">
 <h1>{{ game.name }}</h1>
 <p>
     {% if game.mode == "team game" %}
@@ -50,6 +51,7 @@
         {% endif %}
     {% endif %}
 </p>
+</div>
 
 <div class="frame-box">
 <div>
