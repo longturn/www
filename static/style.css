@@ -241,6 +241,23 @@ div.frame-box {
     display: flex;
 }
 
+div.frame-box > div {
+    border: 1pt solid gray;
+    border-right: none;
+    background-color: #f0eded4a;
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+
+div.frame-box > div:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+div.frame-box > div:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-right: 1pt solid gray;
+}
+
 div.frame-box h3 {
     font-weight: bold;
 }
