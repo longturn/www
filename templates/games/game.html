@@ -11,24 +11,24 @@
 <h3>Connection info</h3>
 <table>
 <tr>
-	<td align=right>host:</td>
+	<td align=right>Host:</td>
 	{% if game.host %}
-	<td><b>{{ game.host }}</b></td>
+	<td><kbd>{{ game.host }}</kbd></td>
 	{% else %}
 	<td>unknown</td>
 	{% endif %}
 </tr>
 <tr>
-	<td align=right>port:</td>
+	<td align=right>Port:</td>
 	{% if game.port %}
-	<td><b>{{ game.port }}</b></td>
+	<td><kbd>{{ game.port }}</kbd></td>
 	{% else %}
 	<td>unknown</td>
 	{% endif %}
 </tr>
 <tr>
-	<td align=right>version:</td>
-	<td><b>{{ game.version }}</b></td>
+	<td align=right>Version:</td>
+	<td>Freeciv {{ game.version }}</td>
 </tr>
 </table>
 </div>
