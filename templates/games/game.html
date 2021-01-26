@@ -5,6 +5,21 @@
 {% block title %}{{ game }}{% endblock %}
 {% block content %}
 <h1>{{ game.name }}</h1>
+<p>
+    {% if old %}
+        Historical game
+    {% else %}
+        {% if game.date_ended != None %}
+            Game played in {{ game.date_ended|date:"Y" }}
+        {% elif startin >= 0 %}
+            Game starting in {{ startin }} days
+        {% elif game.date_started == None %}
+            Planned game
+        {% else %}
+            Ongoing game
+        {% endif %}
+    {% endif %}
+</p>
 
 <div class="frame-box">
 <div>
