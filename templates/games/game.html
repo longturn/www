@@ -6,17 +6,47 @@
 {% block content %}
 <h1>{{ game.name }}</h1>
 <p>
-    {% if old %}
-        Historical game
-    {% else %}
-        {% if game.date_ended != None %}
-            Game played in {{ game.date_ended|date:"Y" }}
-        {% elif startin >= 0 %}
-            Game starting in {{ startin }} days
-        {% elif game.date_started == None %}
-            Planned game
+    {% if game.mode == "team game" %}
+        {% if old %}
+            Historical team game
         {% else %}
-            Ongoing game
+            {% if game.date_ended != None %}
+                Team game played in {{ game.date_ended|date:"Y" }}
+            {% elif startin >= 0 %}
+                Team game starting in {{ startin }} days
+            {% elif game.date_started == None %}
+                Planned team game
+            {% else %}
+                Ongoing team game
+            {% endif %}
+        {% endif %}
+    {% elif game.mode == "experimental" %}
+        {% if old %}
+            Historical experimental game
+        {% else %}
+            {% if game.date_ended != None %}
+                Experimental game played in {{ game.date_ended|date:"Y" }}
+            {% elif startin >= 0 %}
+                Experimental game starting in {{ startin }} days
+            {% elif game.date_started == None %}
+                Planned experimental game
+            {% else %}
+                Ongoing experimental game
+            {% endif %}
+        {% endif %}
+    {% else %}
+        {% if old %}
+            Historical game
+        {% else %}
+            {% if game.date_ended != None %}
+                Game played in {{ game.date_ended|date:"Y" }}
+            {% elif startin >= 0 %}
+                Game starting in {{ startin }} days
+            {% elif game.date_started == None %}
+                Planned game
+            {% else %}
+                Ongoing game
+            {% endif %}
         {% endif %}
     {% endif %}
 </p>
