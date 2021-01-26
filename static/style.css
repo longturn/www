@@ -264,6 +264,19 @@ div.frame-box h3 {
     margin-bottom: 0.25rem;
 }
 
+div.game-title {
+    align-items: baseline;
+    display: flex;
+    flex-flow: row;
+}
+
+div.game-title > p {
+    flex-grow: 1;
+    font-size: larger;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 fieldset {
 	background-color: rgba(170, 153, 102, .2);
 	border: 1px solid #443300;
