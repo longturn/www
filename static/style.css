@@ -246,7 +246,7 @@ div.frame-box > div {
     border-right: none;
     background-color: #f0eded4a;
     margin: 0;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
 }
 
 div.frame-box > div:first-child {
@@ -259,7 +259,9 @@ div.frame-box > div:last-child {
 }
 
 div.frame-box h3 {
+    font-size: inherit;
     font-weight: bold;
+    margin-bottom: 0.25rem;
 }
 
 fieldset {
