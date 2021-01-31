@@ -53,8 +53,24 @@
 </p>
 {% if hasjoined %}
     <div class="join-label">
-        <img class="flag" src="{{ STATIC_URL }}/flags/{{ flag }}.png"/>
-        Joined as the {{ nation }}
+        <a href="#">
+            <img class="flag" src="{{ STATIC_URL }}/flags/{{ flag }}.png"/>
+            Joined as the {{ nation }}
+        </a>
+        <ul>
+            {% if game.open and not game.has_started %}
+                <li>
+                    <form action="" method="post">{% csrf_token %}
+                        <table>
+                            {{ form.as_table }}
+                        </table>
+                        <input class="button" type="submit" name="signin" value="modify">
+                        <input class="button" type="submit" name="signout" value="sign out">
+                    </form>
+            {% else %}
+                <li>Actions at the bottom of the page
+            {% endif %}
+        </ul>
     </div>
 {% endif %}
 </div>

@@ -277,6 +277,49 @@ div.game-title > p {
     padding-right: 1rem;
 }
 
+.join-label {
+    border: 1px solid transparent;
+    padding: 5px;
+    position: relative;
+}
+
+.join-label > a,
+.join-label > a:hover,
+.join-label > a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.join-label:hover {
+    background-color: white;
+    border: 1px solid gray;
+}
+
+.join-label:focus-within {
+    background-image: linear-gradient(#ccc 0%, #eee 100%);
+    border: 1px solid gray;
+}
+
+.join-label > ul {
+    line-height: 200%;
+    list-style: none;
+    margin: 0;
+    max-height: 0;
+    min-width: 25rem;
+    overflow: hidden;
+    padding: 5px;
+    position: absolute;
+    right: -1px;
+    top: 100%;
+}
+
+.join-label:focus-within > ul {
+    max-height: unset;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 0 5px 5px #0005;
+}
+
 fieldset {
 	background-color: rgba(170, 153, 102, .2);
 	border: 1px solid #443300;
