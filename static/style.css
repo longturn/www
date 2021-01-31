@@ -358,16 +358,14 @@ textarea {
 	background-color: #BBAA77;
 	border: 1px solid #443300;
 }
-textarea:hover { background-color: #CCBB88; }
-textarea:focus { background-color: #CCBB88; }
+textarea:focus { outline: 1px solid green; }
 
 input {
     background-color: #E6DCB4;
 	border: 1px solid #443300;
     padding: 0.25rem;
 }
-input:hover { background-color: #CCBB88; }
-input:focus { background-color: #CCBB88; }
+input:focus { outline: 1px solid green; }
 
 /* Used for big "join here" buttons */
 p.button {
