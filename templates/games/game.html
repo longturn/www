@@ -58,7 +58,9 @@
             Joined as the {{ nation }}
         </a>
         <ul>
-            {% if game.open and not game.has_started %}
+            {% if game.has_ended %}
+                <li>Game ended
+            {% elif game.open and not game.has_started %}
                 <li>
                     <form action="" method="post">{% csrf_token %}
                         {{ form.nation.label_tag }}
