@@ -67,6 +67,7 @@
                     </form>
                 <li>
                     <form action="" method="post">{% csrf_token %}
+                        <input id="id_nation" name="nation" type="hidden" value="{{ nation }}">
                         <input class="button" type="submit" name="signout" value="Sign out">
                     </form>
             {% else %}
