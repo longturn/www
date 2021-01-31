@@ -61,11 +61,13 @@
             {% if game.open and not game.has_started %}
                 <li>
                     <form action="" method="post">{% csrf_token %}
-                        <table>
-                            {{ form.as_table }}
-                        </table>
-                        <input class="button" type="submit" name="signin" value="modify">
-                        <input class="button" type="submit" name="signout" value="sign out">
+                        {{ form.nation.label_tag }}
+                        {{ form.nation }}
+                        <input class="button" type="submit" name="signin" value="Modify">
+                    </form>
+                <li>
+                    <form action="" method="post">{% csrf_token %}
+                        <input class="button" type="submit" name="signout" value="Sign out">
                     </form>
             {% else %}
                 <li>Actions at the bottom of the page
