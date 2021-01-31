@@ -309,7 +309,7 @@ div.game-title > p {
     max-height: 0;
     min-width: 25rem;
     overflow: hidden;
-    padding: 5px;
+    padding: 0;
     position: absolute;
     right: -1px;
     top: 100%;
@@ -322,10 +322,8 @@ div.game-title > p {
     box-shadow: 0 5px 5px #0005;
 }
 
-.join-label li:focus-within,
-.join-label li:hover {
-    background-color: #7B3F00;
-    color: white;
+.join-label li {
+    padding: 5px;
 }
 
 fieldset {
