@@ -51,6 +51,12 @@
         {% endif %}
     {% endif %}
 </p>
+{% if hasjoined %}
+    <div class="join-label">
+        <img class="flag" src="{{ STATIC_URL }}/flags/{{ flag }}.png"/>
+        Joined as the {{ nation }}
+    </div>
+{% endif %}
 </div>
 
 <div class="frame-box">

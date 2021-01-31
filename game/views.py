@@ -131,6 +131,8 @@ def game(request, gamename):
 			'game': game,
 			'joineds': joineds,
 			'hasjoined': hasjoined,
+			'flag': nations.flags[nation] if nation in nations.flags else '',
+			'nation': nation,
 			'serv': serv,
 			'startin': startin,
 			'form': form,
