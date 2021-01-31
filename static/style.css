@@ -362,8 +362,9 @@ textarea:hover { background-color: #CCBB88; }
 textarea:focus { background-color: #CCBB88; }
 
 input {
-	background-color: #BBAA77;
+    background-color: #E6DCB4;
 	border: 1px solid #443300;
+    padding: 0.25rem;
 }
 input:hover { background-color: #CCBB88; }
 input:focus { background-color: #CCBB88; }
