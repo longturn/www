@@ -281,6 +281,7 @@ div.game-title > p {
     border: 1px solid transparent;
     padding: 5px;
     position: relative;
+    user-select: none;
 }
 
 .join-label > a,
