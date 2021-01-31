@@ -323,7 +323,22 @@ div.game-title > p {
 }
 
 .join-label li {
-    padding: 5px;
+    padding: 0.5rem;
+    padding-bottom: 0;
+}
+
+.join-label li:last-child {
+    padding-bottom: 0.5rem;
+}
+
+.join-label form {
+    display: flex;
+    flex-flow: row;
+}
+
+.join-label input {
+    flex-grow: 1;
+    margin-left: 0.25rem;
 }
 
 fieldset {
@@ -408,7 +423,6 @@ a.button:hover {
 }
 
 input.button {
-	width: 200px;
 	background-color: #AA9966;
 }
 input.button:hover { background-color: #BBAA77; }
