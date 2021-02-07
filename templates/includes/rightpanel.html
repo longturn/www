@@ -9,7 +9,7 @@
         {% endif %}
         <a class="game menu" href="{% url 'game' g.name %}">{{ g.name }}</a>
         {% if g.startin >= 0 %}
-            Start in {{ gg.startin }} days, <a href="{% url 'game' g.name %}">join now!</a>
+            Start in {{ g.startin }} days, <a href="{% url 'game' g.name %}">join now!</a>
         {% elif g.port %}
             Running port {{ g.port }}
         {% else %}
