@@ -6,48 +6,48 @@ import datetime
 import time
 
 class Game(models.Model):
-	VERSION_CHOICES = (
-		("2.0", "2.0"),
-		("2.1", "2.1"),
-		("2.2", "2.2"),
-		("2.3", "2.3"),
-		("2.4", "2.4"),
-		("2.5", "2.5"),
-		("2.6", "2.6"),
-		("3.0", "3.0"),
-		("3.1", "3.1"),
-		("fc21-3.0", "fc21-3.0"),
-	)
-	MODE_CHOICES = (
-		("team game", "team game"),
-		("teamless", "teamless"),
-		("experimental", "experimental"),
-	)
-	name		= models.SlugField(max_length=32, primary_key=True)
-	descr		= models.TextField()
-	mode		= models.CharField(max_length=128, choices=MODE_CHOICES)
-	version		= models.CharField(max_length=128, choices=VERSION_CHOICES)
-	admin		= models.ForeignKey(User, on_delete=models.CASCADE, related_name="admin", blank=True, null=True)
-	players		= models.ManyToManyField(User, through='Joined', related_name="players")
-	host		= models.CharField(max_length=128, default="longturn.net", blank=True)
-	port		= models.PositiveIntegerField(blank=True, null=True)
-	maxplayers	= models.PositiveSmallIntegerField(default=126)
-	maxteamsize	= models.PositiveSmallIntegerField(default=5)
-	turn		= models.IntegerField(default=0)
-	date_created	= models.DateTimeField(auto_now_add=True)
-	date_started	= models.DateTimeField(blank=True, null=True)
-	date_ended	= models.DateTimeField(blank=True, null=True)
-	ranking		= models.BooleanField(default=True)
-	open		= models.BooleanField(default=True)
+        VERSION_CHOICES = (
+                ("2.0", "2.0"),
+                ("2.1", "2.1"),
+                ("2.2", "2.2"),
+                ("2.3", "2.3"),
+                ("2.4", "2.4"),
+                ("2.5", "2.5"),
+                ("2.6", "2.6"),
+                ("3.0", "3.0"),
+                ("3.1", "3.1"),
+                ("fc21-3.0", "fc21-3.0"),
+        )
+        MODE_CHOICES = (
+                ("team game", "team game"),
+                ("teamless", "teamless"),
+                ("experimental", "experimental"),
+        )
+        name		= models.SlugField(max_length=32, primary_key=True)
+        descr		= models.TextField()
+        mode		= models.CharField(max_length=128, choices=MODE_CHOICES)
+        version		= models.CharField(max_length=128, choices=VERSION_CHOICES)
+        admin		= models.ForeignKey(User, on_delete=models.CASCADE, related_name="admin", blank=True, null=True)
+        players		= models.ManyToManyField(User, through='Joined', related_name="players")
+        host		= models.CharField(max_length=128, default="longturn.net", blank=True)
+        port		= models.PositiveIntegerField(blank=True, null=True)
+        maxplayers	= models.PositiveSmallIntegerField(default=126)
+        maxteamsize	= models.PositiveSmallIntegerField(default=5)
+        turn		= models.IntegerField(default=0)
+        date_created	= models.DateTimeField(auto_now_add=True)
+        date_started	= models.DateTimeField(blank=True, null=True)
+        date_ended	= models.DateTimeField(blank=True, null=True)
+        ranking		= models.BooleanField(default=True)
+        open		= models.BooleanField(default=True)
         confirm_period  = models.PositiveSmallIntegerField(default=7, help_text='The period for which confirmation will remain open (in days)')
-	def has_started(self):
-		return self.date_started != None and self.port != None
-	def has_ended(self):
-		return self.date_ended != None
-	def __unicode__(self):
-		return self.name
-	def __str__(self):
-		return self.name
+        def has_started(self):
+                return self.date_started != None and self.port != None
+        def has_ended(self):
+                return self.date_ended != None
+        def __unicode__(self):
+                return self.name
+        def __str__(self):
+                return self.name
 
 class Team(models.Model):
 	name		= models.CharField(max_length=128)
