@@ -216,10 +216,12 @@
       {% if startin >= 0 and game.mode != 'experimental' %}
         <fieldset style="width: 220">
         <legend>confirm</legend>
-        {% if startin > 7 %}
-          You will be able to confirm your participation no sooner than 14 days before the start
-          of the game. Don't worry - and email notification and forum post will be
-          sent.
+        {% if startin > game.confirm_period %}
+          You will be able to confirm your participation no sooner than
+          {{ game.confirm_period }} days before the start of the game. Don't
+          worry &mdash; a message will be posted on Discord and email
+          notifications will be sent. A message will also be posted on the
+          forum.
         {% else %}
           {% if hasjoined.confirmed %}
             You have confirmed your participation in {{ game }}. If you have changed

@@ -65,7 +65,7 @@ def game(request, gamename):
 				joined.save()
 
 		joineds = None
-		if game.date_started and game.date_started + datetime.timedelta(7) < datetime.datetime.now():
+		if game.date_started and game.date_started + datetime.timedelta(game.confirm_period) < datetime.datetime.now():
 			joineds = list(Joined.objects.filter(game=game, confirmed=True))
 			if hasjoined and not hasjoined.confirmed:
 				hasjoined = None
