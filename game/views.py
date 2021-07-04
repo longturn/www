@@ -123,6 +123,7 @@ def game(request, gamename):
 		joineds.sort(key=lambda x: x.date_joined, reverse=False)
 	else:
 		joineds = list(OldJoined.objects.filter(game=game))
+                nation = None
 
 	return render(
                 request,
