@@ -175,7 +175,7 @@
 <th>nation</th>
 <th width=150>joined</th>
 <th width=50>regent</th>
-{% if game.mode != 'experimental' %}<th width=30 title="Participation Confirmed">pc</th>{% endif %}
+<th width=30 title="Participation Confirmed">pc</th>
 {% for p in joineds %}
 <tr class="{% cycle row0 row1 %}">
 	<td>{{ forloop.counter }}</td>
@@ -186,7 +186,7 @@
 	<td><div><img class="flag" src="{{ STATIC_URL }}/flags/{{ p.flag }}.png"> <span>{{ p.nation }}</span></div></td>
 	<td>{{ p.date_joined|date:"d.m.Y, H:i:s" }}</td>
 	<td>{% if p.delegation %}<a href="{% url 'profile' p.delegation %}">{{ p.delegation }}</a>{% else %}-{% endif %}</td>
-	{% if game.mode != 'experimental' %}<td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>{% endif %}
+	<td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
 </tr>
 {% endfor %}
 </table>
@@ -213,7 +213,7 @@
     {% endif %}
     {% if not game.has_started %}
       <td valign="top">
-      {% if startin >= 0 and game.mode != 'experimental' %}
+      {% if startin >= 0 %}
         <fieldset style="width: 220">
         <legend>confirm</legend>
         {% if startin > game.confirm_period %}
