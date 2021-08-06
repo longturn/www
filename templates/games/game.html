@@ -197,11 +197,11 @@
             <td>{% if p.delegation %}<a href="{% url 'profile' p.delegation %}">{{ p.delegation }}</a>{% else %}-{% endif %}</td>
             <td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
         {% endif %}
-        {% if game.has_ended and game.winners.count > 0 %}
-            <td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ p.is_winner | yesno:"good.bad" }}.png"></center></td>
-        {% endif %}
         {% if game.has_started %}
             <td>{{ p.is_idler | yesno:"yes," }}</td>
+        {% endif %}
+        {% if game.has_ended and game.winners.count > 0 %}
+            <td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ p.is_winner | yesno:"good.bad" }}.png"></center></td>
         {% endif %}
 </tr>
 {% endfor %}
