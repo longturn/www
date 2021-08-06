@@ -181,6 +181,9 @@
 {% if game.has_started %}
 <th>idle</th>
 {% endif %}
+{% if game.has_ended and game.winners %}
+<th>winner</th>
+{% endif %}
 {% for p in joineds %}
 <tr class="{% cycle row0 row1 %}">
 	<td>{{ forloop.counter }}</td>
@@ -193,6 +196,9 @@
             <td>{{ p.date_joined|date:"d.m.Y" }}</td>
             <td>{% if p.delegation %}<a href="{% url 'profile' p.delegation %}">{{ p.delegation }}</a>{% else %}-{% endif %}</td>
             <td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
+        {% endif %}
+        {% if game.has_ended and game.winners %}
+            <td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ p.is_winner | yesno:"good.bad" }}.png"></center></td>
         {% endif %}
         {% if game.has_started %}
             <td>{{ p.is_idler | yesno:"yes," }}</td>
