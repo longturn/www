@@ -201,7 +201,7 @@
             <td>{{ p.is_idler | yesno:"yes," }}</td>
         {% endif %}
         {% if game.has_ended and game.winners.count > 0 %}
-            <td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ p.is_winner | yesno:"good.bad" }}.png"></center></td>
+            <td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ p.is_winner | yesno:"good,bad" }}.png"></center></td>
         {% endif %}
 </tr>
 {% endfor %}
