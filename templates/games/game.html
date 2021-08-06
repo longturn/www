@@ -167,16 +167,16 @@
 
 <h2>players</h2>
 <table class="longturn" width=100%>
-<th width=20>#</th>
+<th>#</th>
 <th>player</th>
 {% if game.mode == 'team game' %}
-<th width=150>team</th>
+<th>team</th>
 {% endif %}
 <th>nation</th>
 {% if not game.has_ended %}
-    <th width=150>joined</th>
-    <th width=50>regent</th>
-    <th width=30 title="Participation Confirmed">pc</th>
+    <th>joined</th>
+    <th>regent</th>
+    <th title="Participation Confirmed">pc</th>
 {% endif %}
 {% if game.has_started %}
 <th>idle</th>
