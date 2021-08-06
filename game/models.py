@@ -44,6 +44,11 @@ class Game(models.Model):
                 return self.date_started != None and self.port != None
         def has_ended(self):
                 return self.date_ended != None
+
+        @property
+        def winners(self):
+            return Joined.objects.filter(game=self, is_winner=True)
+
         def __unicode__(self):
                 return self.name
         def __str__(self):
