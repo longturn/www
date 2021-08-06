@@ -13,6 +13,8 @@
 	<table class="longturn" width=100%>
 	<th>game</th>
 	<th>ruler of</th>
+	<th>confirmed</th>
+	<th>idler</th>
 	<th width=50>winner</th>
 	<th width=50>rank</th>
 	<th width=100>started</th>
@@ -25,6 +27,8 @@
 	{% else %}
 	<td><img class="flag" src="{{ 'random'|flag_url }}"> forgotten</td>
 	{% endif %}
+	<td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ j.confirmed | yesno:"qood,bad" }}.png"></center></td>
+	<td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ j.is_idler | yesno:"qood,bad" }}.png"></center></td>
 	<td><center><img width=16 height=16 {% if j.is_winner %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
 	<td><center><img width=16 height=16 {% if j.game.ranking %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
 	<td>{{ j.game.date_started|date:"d.m.Y" }}</td>
