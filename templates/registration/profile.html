@@ -30,7 +30,7 @@
 	<td><center>{% if j.is_idler %}
             idler
         {% else %}
-            <td><center><img width="16" height="16" src="{{ STATIC_URL }}/{{ j.is_winner | yesno:"good,bad" }}.png">
+            <img width="16" height="16" src="{{ STATIC_URL }}/{{ j.is_winner | yesno:"good,bad" }}.png">
         {% endif %}</center></td>
 	<td><center><img width=16 height=16 {% if j.game.ranking %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
 	<td>{{ j.game.date_started|date:"d.m.Y" }}</td>
