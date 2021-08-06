@@ -176,8 +176,8 @@
 {% if not game.has_ended %}
     <th width=150>joined</th>
     <th width=50>regent</th>
+    <th width=30 title="Participation Confirmed">pc</th>
 {% endif %}
-<th width=30 title="Participation Confirmed">pc</th>
 {% if game.has_started %}
 <th>idle</th>
 {% endif %}
@@ -192,8 +192,8 @@
         {% if not game.has_ended %}
             <td>{{ p.date_joined|date:"d.m.Y" }}</td>
             <td>{% if p.delegation %}<a href="{% url 'profile' p.delegation %}">{{ p.delegation }}</a>{% else %}-{% endif %}</td>
+            <td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
         {% endif %}
-	<td><center><img width=16 height=16 {% if p.confirmed %}src="{{ STATIC_URL }}/good.png"{% else %}src="{{ STATIC_URL }}/bad.png"{% endif %}></center></td>
         {% if game.has_started %}
             <td>{{ p.is_idler | yesno:"yes," }}</td>
         {% endif %}
