@@ -56,6 +56,14 @@ class Game(models.Model):
                         args=(self.name,))
 
     @property
+    def joined_url(self):
+        # URL of list of joineds
+        base = reverse('admin:{}_{}_changelist'.format(self._meta.app_label,
+                                                       Joined._meta.model_name)
+        # Add a search query
+        return f'{base}?q={self.name}'
+
+    @property
     def winners(self):
         return Joined.objects.filter(game=self, is_winner=True)
 
