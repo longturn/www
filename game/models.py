@@ -59,7 +59,7 @@ class Game(models.Model):
     def joined_url(self):
         # URL of list of joineds
         base = reverse('admin:{}_{}_changelist'.format(self._meta.app_label,
-                                                       Joined._meta.model_name)
+                                                       Joined._meta.model_name))
         # Add a search query
         return f'{base}?q={self.name}'
 
