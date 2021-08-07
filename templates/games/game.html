@@ -64,9 +64,9 @@
             </a>
         {% endif %}
         <ul>
-            {% if game.has_ended %}
+            {% if game.has_ended and not user.is_staff %}
                 <li>Game ended
-            {% elif game.open and not game.has_started %}
+            {% elif hasjoined and game.open and not game.has_started %}
                 <li>
                     <form action="" method="post">{% csrf_token %}
                         {{ form.nation.label_tag }}
@@ -78,7 +78,7 @@
                         <input id="id_nation" name="nation" type="hidden" value="{{ nation }}">
                         <input class="button" type="submit" name="signout" value="Sign out">
                     </form>
-            {% else %}
+            {% elif not user.is_staff %}
                 <li>Actions at the bottom of the page
             {% endif %}
             {% if user.is_staff %}
