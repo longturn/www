@@ -57,6 +57,9 @@ class Game(models.Model):
         def winners(self):
             return Joined.objects.filter(game=self, is_winner=True)
 
+        def get_absolute_url(self):
+            return f'/game/{self.name}/'
+
         def __unicode__(self):
                 return self.name
         def __str__(self):
@@ -91,6 +94,9 @@ class Joined(models.Model):
 
 	class Meta:
 		unique_together = ('game', 'user')
+
+        def get_absolute_url(self):
+            return f'/game/{self.game.name}/'
 
 	def __unicode__(self):
 		return "%s/%s" % (self.game, self.user)
