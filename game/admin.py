@@ -6,7 +6,8 @@ class GameAdmin(admin.ModelAdmin):
 	list_filter = ('version', 'mode', 'host')
 
 class JoinedAdmin(admin.ModelAdmin):
-	list_display = ('user', 'game', 'nation', 'team')
+	list_display = ('user', 'game', 'nation', 'team', 'is_idler', 'is_winner')
+	list_editable = ('is_idler', 'is_winner')
 	search_fields = ('user__username', 'game__name')
 
 admin.site.register(Game, GameAdmin)
