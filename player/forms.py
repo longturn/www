@@ -19,10 +19,10 @@ class RegistrationForm(forms.Form):
 		validators=[
 			validators.RegexValidator(
 				regex='^[a-zA-Z][a-zA-Z0-9_]*$',
-				message='Start with a letter and use only letters, numbers and underscores'
+				message='You used disallowed symbols. Start with a letter and use only letters, numbers and underscores.'
 			)
 		],
-		help_text='only characters from the class [a-zA-Z0-9_] allowed, max_length=30. Players will need to type your nick to communicate with you, so make it simple.')
+		help_text='Start with a letter and use only letters, numbers and underscores. Players will need to type your nick to communicate with you, so make it simple.')
 	email = forms.EmailField(
 		max_length=60,
 		help_text='communication is very important in Longturn. Be sure to enter an address you actually check. Messages from other users, as well as notifications about game start will be sent to this address. You can leave this value blank for now and change it later. It will not be verified.',
