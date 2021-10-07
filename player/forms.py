@@ -18,8 +18,8 @@ class RegistrationForm(forms.Form):
 		max_length=30,
 		validators=[
 			validators.RegexValidator(
-				regex='^[a-zA-Z0-9_]+$',
-				message='use only characters from the class [a-zA-Z0-9_]'
+				regex='^[a-zA-Z][a-zA-Z0-9_]*$',
+				message='Start with a letter and use only letters, numbers and underscores'
 			)
 		],
 		help_text='only characters from the class [a-zA-Z0-9_] allowed, max_length=30. Players will need to type your nick to communicate with you, so make it simple.')
