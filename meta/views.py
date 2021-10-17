@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.http import JsonResponse
 from longturn.meta.models import Server
 import json
@@ -65,17 +66,18 @@ def announce(request):
         url = sanitize_url(request, payload['url'])
 
         # Insert into the DB
-        server = Server()
-        server.url = url
-        server.id = payload.get('id', '')
-        server.message = payload.get('message', '')
-        server.patches = payload.get('patches', '')
-        server.capability = payload.get('capability', '')
-        server.version = payload.get('version', '')
-        server.state = payload.get('state', '')
-        server.available = payload.get('available', 0)
-        server.humans = payload.get('humans', 0)
-        server.save()
+        with transaction.atomic():
+            server = Server()
+            server.url = url
+            server.id = payload.get('id', '')
+            server.message = payload.get('message', '')
+            server.patches = payload.get('patches', '')
+            server.capability = payload.get('capability', '')
+            server.version = payload.get('version', '')
+            server.state = payload.get('state', '')
+            server.available = payload.get('available', 0)
+            server.humans = payload.get('humans', 0)
+            server.save()
 
         return JsonResponse({'status': 'ok'})
     except json.JSONDecodeError as e:
