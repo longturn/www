@@ -33,11 +33,19 @@ def sanitize_url(request, url):
 
     # Check that the host matches the IP (prevent someone from erasing all
     # servers)
-    ip = request.META['REMOTE_ADDR']
-    (hostname, aliaslist, _) = socket.gethostbyaddr(ip)
-    aliaslist.append(hostname)
-    if not url.hostname in aliaslist:
-        raise Exception(f"Host name {url.hostname} doesn't match your IP {ip}")
+    try:
+        ip = request.META['REMOTE_ADDR']
+        addrinfo = socket.getaddrinfo(url.hostname, url.port or 5556,
+                                      0, 0, socket.IPPROTO_TCP)
+        for entry in addrinfo:
+            if entry[-1][0] == ip:
+                break # ok!
+        else:
+            # No way someone can contact the remote server using this host name
+            raise Exception(f"Host name {url.hostname} doesn't match your IP {ip}")
+    except OSError:
+        # Most likely the domain doesn't exist
+        raise Exception(f"Could not resolve host {url.hostname}")
 
     # Standardize
     return urllib.parse.urlunparse(url)
