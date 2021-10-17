@@ -22,6 +22,9 @@ class Server(models.Model):
             .filter(last_seen__lt = timezone.now() - timedelta(minutes=10)) \
             .delete()
 
+    def nations(self):
+        return Nation.objects.filter(server=self).all()
+
     def json(self):
         return dict(
             url = self.url,
@@ -33,4 +36,29 @@ class Server(models.Model):
             state = self.state,
             available = self.available,
             humans = self.humans,
+            nations = [nation.json() for nation in self.nations()]
+        )
+
+class Nation(models.Model):
+    server = models.ForeignKey(Server, on_delete=models.CASCADE)
+    user = models.SlugField()
+    nation = models.CharField(max_length=256)
+    leader = models.CharField(max_length=256)
+
+    TYPE_CHOICES = (
+        (0, '-'),
+        (1, 'Dead'),
+        (2, 'Barbarian'),
+        (3, 'A.I.'),
+        (4, 'Human'),
+    )
+    type = models.IntegerField(choices=TYPE_CHOICES)
+
+
+    def json(self):
+        return dict(
+            user = self.user,
+            nation = self.nation,
+            leader = self.leader,
+            type = self.type,
         )

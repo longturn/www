@@ -1,6 +1,6 @@
 from django.db import transaction
 from django.http import JsonResponse
-from longturn.meta.models import Server
+from longturn.meta.models import Server, Nation
 import json
 import socket
 import urllib
@@ -78,6 +78,24 @@ def announce(request):
             server.available = payload.get('available', 0)
             server.humans = payload.get('humans', 0)
             server.save()
+
+            # Replace old nations, if any
+            Nation.objects.filter(server=server).delete()
+
+            for nation in payload.get('nations', []):
+                db_nation = Nation()
+                db_nation.server = server
+                db_nation.user = nation.get('user', 'unassigned')
+                db_nation.nation = nation.get('nation', 'unknown')
+                db_nation.leader = nation.get('leader', '?')
+                # This matches TYPE_CHOICES in models.py
+                db_nation.type = {
+                    'Dead': 1,
+                    'Barbarian': 2,
+                    'A.I.': 3,
+                    'Human': 4,
+                }.get(nation.get('type', '?'), 0)
+                db_nation.save()
 
         return JsonResponse({'status': 'ok'})
     except json.JSONDecodeError as e:
