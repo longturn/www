@@ -81,6 +81,7 @@ INSTALLED_APPS = (
 	'longturn.serv',
 	'longturn.fluxbb',
 	'longturn.old',
+	'longturn.meta',
 )
 
 LOGIN_URL = "/account/login/"
