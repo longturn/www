@@ -16,6 +16,7 @@ class UserField(forms.CharField):
 class RegistrationForm(forms.Form):
 	username = UserField(
 		max_length=30,
+                strip=False,
 		validators=[
 			validators.RegexValidator(
 				regex='^[a-zA-Z][a-zA-Z0-9_]*$',
