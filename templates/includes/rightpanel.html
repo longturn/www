@@ -2,18 +2,20 @@
 <h3>Active games</h3>
 <ul class="games">
     {% for g in active_games %}
-        {% if g.port %}
-            <li>
-        {% else %}
-            <li class="open">
-        {% endif %}
-        <a class="game menu" href="{% url 'game' g.name %}">{{ g.name }}</a>
-        {% if g.startin >= 0 %}
-            Start in {{ g.startin }} days, <a href="{% url 'game' g.name %}">join now!</a>
-        {% elif g.port %}
-            Running port {{ g.port }}
-        {% else %}
-            <a href="{% url 'game' g.name %}">Join now!</a>
+        {% if g.show_in_sidebar %}
+            {% if g.port %}
+                <li>
+            {% else %}
+                <li class="open">
+            {% endif %}
+            <a class="game menu" href="{% url 'game' g.name %}">{{ g.name }}</a>
+            {% if g.startin >= 0 %}
+                Start in {{ g.startin }} days, <a href="{% url 'game' g.name %}">join now!</a>
+            {% elif g.port %}
+                Running port {{ g.port }}
+            {% else %}
+                <a href="{% url 'game' g.name %}">Join now!</a>
+            {% endif %}
         {% endif %}
     {% endfor %}
     <li><a class="menu" href="{% url 'game_list' %}">All games</a></li>

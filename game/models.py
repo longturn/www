@@ -41,6 +41,7 @@ class Game(models.Model):
     ranking     = models.BooleanField(default=True)
     open        = models.BooleanField(default=True)
     confirm_period = models.PositiveSmallIntegerField(default=7, help_text='The period for which confirmation will remain open (in days)')
+    show_in_menu = models.BooleanField(default=True)
 
     def has_started(self):
         return self.date_started != None and self.port != None
