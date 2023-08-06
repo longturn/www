@@ -20,4 +20,5 @@ urlpatterns = [
 	url(r'^warcalc/',			include('longturn.warcalc.urls')),
 	url(r'^ranking/',			include('longturn.ranking.urls')),
 	url(r'^admin/',				admin.site.urls),
+    url(r'^o/',                 include('oauth2_provider.urls', namespace='oauth2_provider')),
 ]

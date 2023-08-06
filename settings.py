@@ -1,10 +1,12 @@
+import os
+
 from .settings_secret import *
 
 #DEBUG = True
-DEBUG = True
+DEBUG = False
 
 ADMINS = (
-	('Michal Mazurek', 'akfaew@gmail.com'),
+	('The Lonturn Team', 'longturn-net@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -81,9 +83,23 @@ INSTALLED_APPS = (
 	'longturn.serv',
 	'longturn.fluxbb',
 	'longturn.old',
+    'oauth2_provider',
 )
 
 LOGIN_URL = "/account/login/"
 LOGIN_REDIRECT_URL = "/account/profile/"
 
 AUTHENTICATION_BACKENDS = ('longturn.player.backends.GenMD5ModelBackend',)
+
+# For OAuth
+SCOPES = {"user": "User information"}
+REFRESH_TOKEN_EXPIRE_SECONDS = 3600 * 24 * 7
+if "OIDC_KEY" in os.environ:
+    OAUTH2_PROVIDER = {
+        "OIDC_ENABLED": True,
+        "OIDC_RSA_PRIVATE_KEY": os.environ["OIDC_KEY"],
+        "OAUTH2_VALIDATOR_CLASS": "longturn.oauth_validator.LongturnOAuth2Validator",
+        "SCOPES": {
+            "openid": "OpenID Connect scope",
+        },
+    }
