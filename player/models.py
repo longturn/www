@@ -10,8 +10,6 @@ import datetime
 class Player(models.Model):
 	user		= models.OneToOneField(User, on_delete=models.CASCADE, related_name="profile")
 	info		= models.TextField(max_length=8192, blank=True, null=True)
-	pass_md5	= models.CharField(max_length=64)
-	pass_sha1	= models.CharField(max_length=64)
 	discord         = models.CharField(max_length=128, blank=True, null=True)
 
 	def __unicode__(self):
