@@ -5,37 +5,6 @@
 {% block content %}
 <h1>{{ user }}'s profile</h1>
 
-<p>
-<fieldset style="width: 500">
-<legend>forum</legend>
-{% if user.profile.forum_account %}
-<p>
-Your profile: <a href="http://forum.longturn.net/profile.php?id={{ user.profile.forum_account.0 }}">{{ user.profile.forum_account.1 }}</a>.
-</p>
-<p>
-If you changed your password or email address, click <b>update</b>.<br>
-If that doesn't help, log out and log in to this website again.<br>
-If that doesn't help contact <a href="{% url 'profile' "akfaew" %}">akfaew</a>.
-</p>
-<form action="" method="post">{% csrf_token %}
-	<center>
-	<input class="button" type="submit" name="forum_update" value="Update">
-	</center>
-</form>
-{% else %}
-<p>
-You do not have a forum account yet. Press <b>create</b>, and one will
-be made for you.
-</p>
-<form action="" method="post">{% csrf_token %}
-	<center>
-	<input class="button" type="submit" name="forum_create" value="Create">
-	</center>
-</form>
-{% endif %}
-</fieldset>
-</p>
-
 {% if joineds %}
 <h2>my games</h2>
 <table class="longturn" width=100%>

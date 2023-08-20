@@ -39,13 +39,6 @@
     {% endif %}
 
 	<p>
-	{% if player.profile.forum_account %}
-	forum account: <a href="http://forum.longturn.net/profile.php?id={{ player.profile.forum_account.0 }}">{{ player.profile.forum_account.1 }}</a>.
-	{% else %}
-	This user does not have a forum account.
-	{% endif %}
-	</p>
-	<p>
 	{% if player.profile.discord %}
 	Discord username: {{ player.profile.discord }}.
 	{% else %}

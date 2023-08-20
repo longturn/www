@@ -81,7 +81,6 @@ INSTALLED_APPS = (
 	'longturn.game',
 	'longturn.warcalc',
 	'longturn.serv',
-	'longturn.fluxbb',
 	'longturn.old',
     'oauth2_provider',
 )

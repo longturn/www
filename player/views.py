@@ -43,12 +43,6 @@ def myprofile(request):
 				user.profile.save()
 				user.save()
 				return HttpResponseRedirect("/account/profile")
-		elif 'forum_create' in request.POST:
-			request.user.profile.create_forum_account()
-			return HttpResponseRedirect("/account/profile")
-		elif 'forum_update' in request.POST:
-			a = request.user.profile.update_forum_account()
-			return HttpResponseRedirect("/account/profile/")
 	else:
 		form = ProfileForm(
 			initial={
