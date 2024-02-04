@@ -322,7 +322,7 @@ flags = {
 	"Mecklenburgian": "mecklenburg",
 	"Median": "median",
 	"Messapian": "messapian",
-	"Métis": "metis",
+	"Metis": "metis",
 	"Metis": "metis", # compat
 	"Mexican": "mexico",
 	"Miao": "hainan",
@@ -888,7 +888,7 @@ nations = [
 	"Mecklenburgian",
 	"Median",
 	"Messapian",
-	"Métis",
+	"Metis",
 	"Mexican",
 	"Miao",
 	"Micronesian",
