@@ -147,7 +147,7 @@ def players_serv(request, gamename):
         except:
                 return message(request, "The game %s does not exist" % gamename)
 
-        joineds = list(Joined.objects.filter(game=game))
+        joineds = list(Joined.objects.filter(game=game, confirmed=True))
         joineds.sort(key=lambda x: x.date_joined, reverse=False)
 
         return render(
