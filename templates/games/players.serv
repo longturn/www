@@ -1,2 +1,11 @@
-{% for p in joineds %}{{ p.user }}:{% if game.mode == 'team game' %}{{ p.team }}{% endif %}:{% if p.nation != 'random' %}{{ p.nation }}{% endif %}
+set aifill {{ joineds | length }}
+# Make sure they are humans
+{% for p in joineds %}aitoggle AI*{{ forloop.counter }}
 {% endfor %}
+# Set nations
+{% for p in joineds %}playernation AI*{{ forloop.counter }} {{ p.nation }} 1 {{ p.user }}
+{% endfor %}
+{% if game.mode == 'team game' %}
+# Set teams
+team {{ p.user }} "{{ p.team }}"
+{% endif %}
