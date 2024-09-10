@@ -141,7 +141,7 @@ def game(request, gamename):
                         'old': old,
                 })
 
-def players_txt(request, gamename):
+def players_serv(request, gamename):
         try:
                 game = Game.objects.get(name=gamename)
         except:
@@ -152,7 +152,7 @@ def players_txt(request, gamename):
 
         return render(
                 request,
-                'games/players.txt',
+                'games/players.serv',
                 {
                         'game': game,
                         'joineds': joineds,
