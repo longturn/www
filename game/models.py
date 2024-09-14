@@ -18,6 +18,7 @@ class Game(models.Model):
             ("3.0", "3.0"),
             ("3.1", "3.1"),
             ("fc21-3.0", "fc21-3.0"),
+            ("fc21-3.1", "fc21-3.1"),
     )
     MODE_CHOICES = (
             ("team game", "team game"),
